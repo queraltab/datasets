@@ -351,7 +351,7 @@ dict_save={'cases':'casos', 'deaths':'fallecidos',
             'hosp':'hospitalizados',
             'uci':'uci'}
 
-study='deaths'
+study='cases'
 columns = ccaa
 df = dict_df[study]
 df_by_pop = pd.DataFrame(index=df.index)
@@ -400,6 +400,35 @@ def plot_global_distr(dict_df,ccaa):
         axs[i[0],i[1]].fill_between(x, y2, y3, alpha=0.4, label='Personas fallecidas acumuladas')
         axs[i[0],i[1]].fill_between(x, y3, [0]*len(x), alpha=0.4, label='Personas curadas acumuladas')
 #        axs[i[0],i[1]].set_xticks(rotate=-45)
+        plt.setp(axs[i[0],i[1]].get_xticklabels(), rotation=70, horizontalalignment='right')
+    axs[0,0].legend(loc='lower left', bbox_to_anchor= (0.0, 1.21), ncol=4,
+                   borderaxespad=0, frameon=False, fontsize=12)
+    #mpld3.save_html(fig,'docs/hoy_distribucion_casos.html', template_type='simple')    
+    
+plot_global_distr(dict_df,ccaa)
+
+#%% Plot of distribution (hospitalization/uci)
+
+def plot_global_distr(dict_df,ccaa):
+    fig, axs = plt.subplots(4,5,sharex=True,figsize=(12,10))
+    pos=[[0,0],[0,1],[0,2],[0,3],[0,4],
+         [1,0],[1,1],[1,2],[1,3],[1,4],
+         [2,0],[2,1],[2,2],[2,3],[2,4],
+         [3,0],[3,1],[3,2],[3,3],[3,4]]
+#         [4,0],[4,1],[4,2],[4,3]
+    df_hosp=dict_df['hosp']
+    df_uci=dict_df['uci']
+    x=df_hosp.index
+    fig.suptitle('Distribución de los casos que han precisado hospitalización por Comunidad Autónoma',fontsize=16)
+    for i, ca in zip(pos, ccaa):
+        y0=[0]*len(x)
+        y1=df_uci[x[0]:][ca]
+        y2=df_hosp[ca]          # Because UCI is a subset of hosp
+        
+        axs[i[0],i[1]].plot(x,y2,color='red',label='Casos acumulados que han precisado hospitalización (incluyendo UCI)')
+        axs[i[0],i[1]].set_title(ca)
+        axs[i[0],i[1]].fill_between(x, y2, y1, alpha=0.4, label='Casos sin ingreso en UCI')
+        axs[i[0],i[1]].fill_between(x, y1, y0, alpha=0.4, label='Casos con ingreso en UCI')
         plt.setp(axs[i[0],i[1]].get_xticklabels(), rotation=70, horizontalalignment='right')
     axs[0,0].legend(loc='lower left', bbox_to_anchor= (0.0, 1.21), ncol=4,
                    borderaxespad=0, frameon=False, fontsize=12)

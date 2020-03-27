@@ -321,22 +321,22 @@ plot_log(df_cases, ccaa_5, 'Casos confirmados', min_num=50)
 
 interactive_plot(df_cases,ccaa,
                  'Evolución desde el primer día en que se registraron más de 50 casos en cada región',
-                 '200325_log_casos',
+                 '200326_log_casos',
                  logy=True)
 
 interactive_plot(df_cases,ccaa[:-1],
-                 'Evolución de casos confirmados por comunidad autónoma',
-                 '200325_casos',
+                 'Casos confirmados por comunidad autónoma',
+                 '200326_casos',
                  logy=False)
 
 interactive_plot(df_deaths,ccaa,
                  'Evolución desde el primer día en que se registró más de 5 muertes',
-                 '200325_log_fallecidos',
+                 '200326_log_fallecidos',
                  logy=True,min_num=5)
 
 interactive_plot(df_deaths,ccaa[:-1],
                  'Fallecidos por comunidad autónoma',
-                 '200325_fallecidos',
+                 '200326_fallecidos',
                  logy=False,min_num=5)
 
 #%% Interactive plot of data per 100000 inhabitants

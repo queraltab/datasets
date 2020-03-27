@@ -342,17 +342,6 @@ interactive_plot(df_deaths,ccaa[:-1],
 
 #%% Interactive plot of data per 100000 inhabitants
 
-columns = ccaa
-df = dict_df['deaths']
-df_by_pop = pd.DataFrame(index=df.index)
-for ca in columns:
-    df_by_pop[ca]=df[ca]/population[ca]*100000
-interactive_plot(df_by_pop,ccaa,
-                 'Fallecidos por cada 100000 habitante',
-                 '200325_fallecidos_por_100000_habitante')
-
-#%% Interactive plot of new confirmed cases
-
 dict_title={'cases':'Casos confirmados', 'deaths':'Fallecidos',
             'healed':'Personas curadas', 
             'hosp':'Personas que han precisado hospitalización (incluyendo UCI)',
@@ -361,6 +350,19 @@ dict_save={'cases':'casos', 'deaths':'fallecidos',
             'healed':'curados', 
             'hosp':'hospitalizados',
             'uci':'uci'}
+
+study='deaths'
+columns = ccaa
+df = dict_df[study]
+df_by_pop = pd.DataFrame(index=df.index)
+for ca in columns:
+    df_by_pop[ca]=df[ca]/population[ca]*100000
+interactive_plot(df_by_pop,ccaa,
+                 dict_title[study]+' por cada 100000 habitante',
+                 'hoy_'+dict_save[study]+'_por_100000_habitante')
+
+#%% Interactive plot of new confirmed cases
+
 columns = ccaa[:-1]
 study='healed'
 logy=False 

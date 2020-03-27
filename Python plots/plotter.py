@@ -240,9 +240,9 @@ def interactive_plot(df,columns,title,save_name,logy=False,min_num=50):
                                                          start_visible=True)
     plugins.connect(fig, interactive_legend)
     fig.subplots_adjust(right=0.7)
-    ax.set_xlabel('Días')
-    #ax.set_ylabel('Logaritmo de los casos confirmados')
-    ax.set_title(title)
+    ax.set_xlabel('Días', size=14)
+    ax.set_ylabel('Personas', size=14)
+    ax.set_title(title, size=18)
     mpld3.show()
     mpld3.save_html(fig,'Interactive_plots/'+save_name+'.html', template_type='simple')
 
@@ -321,22 +321,22 @@ plot_log(df_cases, ccaa_5, 'Casos confirmados', min_num=50)
 
 interactive_plot(df_cases,ccaa,
                  'Evolución desde el primer día en que se registraron más de 50 casos en cada región',
-                 '200326_log_casos',
+                 'hoy_log_casos_acumulados',
                  logy=True)
 
 interactive_plot(df_cases,ccaa[:-1],
                  'Casos confirmados por comunidad autónoma',
-                 '200326_casos',
+                 'hoy_casos_acumulados',
                  logy=False)
 
 interactive_plot(df_deaths,ccaa,
                  'Evolución desde el primer día en que se registró más de 5 muertes',
-                 '200326_log_fallecidos',
+                 'hoy_log_fallecidos_acumulados',
                  logy=True,min_num=5)
 
 interactive_plot(df_deaths,ccaa[:-1],
                  'Fallecidos por comunidad autónoma',
-                 '200326_fallecidos',
+                 'hoy_fallecidos_acumulados',
                  logy=False,min_num=5)
 
 #%% Interactive plot of data per 100000 inhabitants

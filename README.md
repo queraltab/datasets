@@ -10,11 +10,13 @@ Estos gráficos incluyen una leyenda interactiva que permite al lector ver las c
         - [Gráfico con escala normal](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_casos_acumulados.html)
         - [Gráfico con escala logarítmica](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_log_casos_acumulados.html)
     - [Diarios](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_casos_diarios.html)
+    - [Casos confirmados acumulados por cada 100.000 habitantes](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_casos_por_100000_habitante.html)
 - **Fallecidos**: 
     - Acumulado del número de fallecidos registrados por Comunidad Autónoma
         - [Gráfico con escala normal](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_acumulados.html)
         - [Gráfico con escala logarítmica](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_log_fallecidos_acumulados.html)
     - [Diarios](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_diarios.html)
+    - [Fallecidos acumulados por cada 100.000 habitantes](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_por_100000_habitante.html)
 
 ### Gráficos por Comunidad Autónoma:
 - [Distribución de los casos confirmados acumulados](https://queraltab.github.io/datasets/Python%20plots/Plots/hoy_distribucion_casos.png): muestra la proporción de casos activos, fallecidos y curados para cada Comunidad Autónoma.
@@ -34,11 +36,13 @@ These plots include an interactive legend that allows the user to see the curves
         - [Normal scale plot](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_casos_acumulados.html)
         - [Logarithmic scale plot](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_log_casos_acumulados.html)
     - [Daily](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_casos_diarios.html)
+    - [Accumulated confirmed cases per 100.000 population](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_casos_por_100000_habitante.html)
 - **Deaths**: 
     - Accumulated number of registered deaths by region
         - [Normal scale plot](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_acumulados.html)
         - [Logarithmic scale plot](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_log_fallecidos_acumulados.html)
     - [Daily](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_diarios.html)
+    - [Accumulated death per 100.000 population](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_por_100000_habitante.html)
 
 ### Plot by region:
 - [Distribution of the accumulated number of confirmed cases](https://queraltab.github.io/datasets/Python%20plots/Plots/hoy_distribucion_casos.png): shows the amount of active, deaths and healed by region.

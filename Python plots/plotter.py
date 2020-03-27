@@ -127,11 +127,11 @@ def plot_distr_cases(dict_df,ca):
     y2=df_deaths[x[0]:][ca]+df_healed[x[0]:][ca]
     y3=df_healed[x[0]:][ca]
     plt.figure()
-    plt.plot(x,y1,label='Casos confirmados')
+    plt.plot(x,y1,color='red',label='Casos confirmados acumulados')
     plt.title('Distribución de los casos registrados en ' + ('Catalunya' if ca=='Cataluña' else ca))
     plt.fill_between(x, y1, y2, alpha=0.4, label='Casos activos')
-    plt.fill_between(x, y2, y3, alpha=0.4, label='Personas fallecidas')
-    plt.fill_between(x, y3, [0]*len(x), alpha=0.4, label='Personas curadas')
+    plt.fill_between(x, y2, y3, alpha=0.4, label='Personas fallecidas acumuladas')
+    plt.fill_between(x, y3, [0]*len(x), alpha=0.4, label='Personas curadas acumuladas')
     plt.legend(loc='upper left')
     
     
@@ -350,3 +350,58 @@ for ca in columns:
 interactive_plot(df_by_pop,ccaa,
                  'Fallecidos por cada 100000 habitante',
                  '200325_fallecidos_por_100000_habitante')
+
+#%% Interactive plot of new confirmed cases
+
+dict_title={'cases':'Casos confirmados', 'deaths':'Fallecidos',
+            'healed':'Personas curadas', 
+            'hosp':'Personas que han precisado hospitalización (incluyendo UCI)',
+            'uci':'Personas que han precisado ingreso en la UCI'}
+dict_save={'cases':'casos', 'deaths':'fallecidos',
+            'healed':'curados', 
+            'hosp':'hospitalizados',
+            'uci':'uci'}
+columns = ccaa[:-1]
+study='healed'
+logy=False 
+
+logy_save='log_' if logy else ''
+df = dict_df[study]
+shift = df.shift(periods=+1)
+dif = df-shift
+interactive_plot(dif,columns,
+                 dict_title[study]+' diarios por Comunidad Autónoma',
+                 'hoy_'+logy_save+dict_save[study]+'_diarios',
+                 logy=logy)
+
+#%% Plot of distribution (active, healed, dead)
+
+def plot_global_distr(dict_df,ccaa):
+    fig, axs = plt.subplots(4,5,sharex=True,figsize=(12,10))
+    pos=[[0,0],[0,1],[0,2],[0,3],[0,4],
+         [1,0],[1,1],[1,2],[1,3],[1,4],
+         [2,0],[2,1],[2,2],[2,3],[2,4],
+         [3,0],[3,1],[3,2],[3,3],[3,4]]
+#         [4,0],[4,1],[4,2],[4,3]
+    df_cases=dict_df['cases']
+    df_deaths=dict_df['deaths']
+    df_healed=dict_df['healed']
+    x=df_healed.index
+    fig.suptitle('Distribución de los casos registrados por Comunidad Autónoma',fontsize=16)
+    for i, ca in zip(pos, ccaa):
+        y1=df_cases[x[0]:][ca]
+        y2=df_deaths[x[0]:][ca]+df_healed[x[0]:][ca]
+        y3=df_healed[x[0]:][ca]
+        axs[i[0],i[1]].plot(x,y1,color='red',label='Casos confirmados acumulados')
+        axs[i[0],i[1]].set_title(ca)
+        axs[i[0],i[1]].fill_between(x, y1, y2, alpha=0.4, label='Casos activos')
+        axs[i[0],i[1]].fill_between(x, y2, y3, alpha=0.4, label='Personas fallecidas acumuladas')
+        axs[i[0],i[1]].fill_between(x, y3, [0]*len(x), alpha=0.4, label='Personas curadas acumuladas')
+#        axs[i[0],i[1]].set_xticks(rotate=-45)
+        plt.setp(axs[i[0],i[1]].get_xticklabels(), rotation=70, horizontalalignment='right')
+    axs[0,0].legend(loc='lower left', bbox_to_anchor= (0.0, 1.21), ncol=4,
+                   borderaxespad=0, frameon=False, fontsize=12)
+    #mpld3.save_html(fig,'docs/hoy_distribucion_casos.html', template_type='simple')    
+    
+plot_global_distr(dict_df,ccaa)
+

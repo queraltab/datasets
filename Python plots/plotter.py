@@ -198,7 +198,7 @@ def plot_log(df, columns, title, min_num=200):
     plt.semilogy()
     plt.legend()
 
-def interactive_plot(df,columns,title,save_name,logy=False,min_num=50):
+def interactive_plot(df,columns,title,save_name,logy=False,min_num=50,show=False):
     '''
     Interactive plot of certain columns of df.
     Parameters
@@ -243,7 +243,8 @@ def interactive_plot(df,columns,title,save_name,logy=False,min_num=50):
     ax.set_xlabel('Días', size=14)
     ax.set_ylabel('Personas', size=14)
     ax.set_title(title, size=18)
-    mpld3.show()
+    if show:
+        mpld3.show()
     mpld3.save_html(fig,'docs/'+save_name+'.html', template_type='simple')
 
 #%% Importing data

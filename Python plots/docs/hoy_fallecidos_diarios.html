@@ -1,0 +1,168 @@
+
+<script type="text/javascript" src="https://mpld3.github.io/js/d3.v3.min.js"></script>
+<script type="text/javascript" src="https://mpld3.github.io/js/mpld3.v0.3.js"></script>
+
+<style>
+
+    .legend-box {
+      cursor: pointer;
+    }
+    
+</style>
+
+<div id="fig_el1731615406681605446593602954"></div>
+<script type="text/javascript">
+
+  !function(mpld3){
+       
+    mpld3.register_plugin("interactive_legend", InteractiveLegend);
+    InteractiveLegend.prototype = Object.create(mpld3.Plugin.prototype);
+    InteractiveLegend.prototype.constructor = InteractiveLegend;
+    InteractiveLegend.prototype.requiredProps = ["element_ids", "labels"];
+    InteractiveLegend.prototype.defaultProps = {"ax":null,
+                                                "alpha_unsel":0.2,
+                                                "alpha_over":1.0,
+                                                "start_visible":true}
+    function InteractiveLegend(fig, props){
+        mpld3.Plugin.call(this, fig, props);
+    };
+
+    InteractiveLegend.prototype.draw = function(){
+        var alpha_unsel = this.props.alpha_unsel;
+        var alpha_over = this.props.alpha_over;
+
+        var legendItems = new Array();
+        for(var i=0; i<this.props.labels.length; i++){
+            var obj = {};
+            obj.label = this.props.labels[i];
+
+            var element_id = this.props.element_ids[i];
+            mpld3_elements = [];
+            for(var j=0; j<element_id.length; j++){
+                var mpld3_element = mpld3.get_element(element_id[j], this.fig);
+
+                // mpld3_element might be null in case of Line2D instances
+                // for we pass the id for both the line and the markers. Either
+                // one might not exist on the D3 side
+                if(mpld3_element){
+                    mpld3_elements.push(mpld3_element);
+                }
+            }
+
+            obj.mpld3_elements = mpld3_elements;
+            obj.visible = this.props.start_visible[i]; // should become be setable from python side
+            legendItems.push(obj);
+            set_alphas(obj, false);
+        }
+
+        // determine the axes with which this legend is associated
+        var ax = this.props.ax
+        if(!ax){
+            ax = this.fig.axes[0];
+        } else{
+            ax = mpld3.get_element(ax, this.fig);
+        }
+
+        // add a legend group to the canvas of the figure
+        var legend = this.fig.canvas.append("svg:g")
+                               .attr("class", "legend");
+
+        // add the rectangles
+        legend.selectAll("rect")
+                .data(legendItems)
+                .enter().append("rect")
+                .attr("height", 10)
+                .attr("width", 25)
+                .attr("x", ax.width + ax.position[0] + 25)
+                .attr("y",function(d,i) {
+                           return ax.position[1] + i * 25 + 10;})
+                .attr("stroke", get_color)
+                .attr("class", "legend-box")
+                .style("fill", function(d, i) {
+                           return d.visible ? get_color(d) : "white";})
+                .on("click", click).on('mouseover', over).on('mouseout', out);
+
+        // add the labels
+        legend.selectAll("text")
+              .data(legendItems)
+              .enter().append("text")
+              .attr("x", function (d) {
+                           return ax.width + ax.position[0] + 25 + 40;})
+              .attr("y", function(d,i) {
+                           return ax.position[1] + i * 25 + 10 + 10 - 1;})
+              .text(function(d) { return d.label });
+
+
+        // specify the action on click
+        function click(d,i){
+            d.visible = !d.visible;
+            d3.select(this)
+              .style("fill",function(d, i) {
+                return d.visible ? get_color(d) : "white";
+              })
+            set_alphas(d, false);
+
+        };
+
+        // specify the action on legend overlay 
+        function over(d,i){
+             set_alphas(d, true);
+        };
+
+        // specify the action on legend overlay 
+        function out(d,i){
+             set_alphas(d, false);
+        };
+
+        // helper function for setting alphas
+        function set_alphas(d, is_over){
+            for(var i=0; i<d.mpld3_elements.length; i++){
+                var type = d.mpld3_elements[i].constructor.name;
+
+                if(type =="mpld3_Line"){
+                    var current_alpha = d.mpld3_elements[i].props.alpha;
+                    var current_alpha_unsel = current_alpha * alpha_unsel;
+                    var current_alpha_over = current_alpha * alpha_over;
+                    d3.select(d.mpld3_elements[i].path[0][0])
+                        .style("stroke-opacity", is_over ? current_alpha_over :
+                                                (d.visible ? current_alpha : current_alpha_unsel))
+                        .style("stroke-width", is_over ? 
+                                alpha_over * d.mpld3_elements[i].props.edgewidth : d.mpld3_elements[i].props.edgewidth);
+                } else if((type=="mpld3_PathCollection")||
+                         (type=="mpld3_Markers")){
+                    var current_alpha = d.mpld3_elements[i].props.alphas[0];
+                    var current_alpha_unsel = current_alpha * alpha_unsel;
+                    var current_alpha_over = current_alpha * alpha_over;
+                    d3.selectAll(d.mpld3_elements[i].pathsobj[0])
+                        .style("stroke-opacity", is_over ? current_alpha_over :
+                                                (d.visible ? current_alpha : current_alpha_unsel))
+                        .style("fill-opacity", is_over ? current_alpha_over :
+                                                (d.visible ? current_alpha : current_alpha_unsel));
+                } else{
+                    console.log(type + " not yet supported");
+                }
+            }
+        };
+
+
+        // helper function for determining the color of the rectangles
+        function get_color(d){
+            var type = d.mpld3_elements[0].constructor.name;
+            var color = "black";
+            if(type =="mpld3_Line"){
+                color = d.mpld3_elements[0].props.edgecolor;
+            } else if((type=="mpld3_PathCollection")||
+                      (type=="mpld3_Markers")){
+                color = d.mpld3_elements[0].props.facecolors[0];
+            } else{
+                console.log(type + " not yet supported");
+            }
+            return color;
+        };
+    };
+    
+       mpld3.draw_figure("fig_el1731615406681605446593602954", {"width": 1000.0, "height": 600.0, "axes": [{"bbox": [0.125, 0.10999999999999999, 0.575, 0.77], "xlim": [737486.9, 737511.1], "ylim": [-14.5, 304.5], "xdomain": [[2020, 2, 2, 21, 36, 0, 0.0], [2020, 2, 27, 2, 24, 0, 0.0]], "ydomain": [-14.5, 304.5], "xscale": "date", "yscale": "linear", "axes": [{"position": "bottom", "nticks": 6, "tickvalues": null, "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": false}, "visible": true}, {"position": "left", "nticks": 9, "tickvalues": null, "tickformat": null, "scale": "linear", "fontsize": 10.0, "grid": {"gridOn": false}, "visible": true}], "axesbg": "#FFFFFF", "axesbgalpha": null, "zoomable": true, "id": "el173161540668080760", "lines": [{"data": "data01", "xindex": 0, "yindex": 1, "coordinates": "data", "id": "el173161540714765784", "color": "#1F77B4", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 2, "coordinates": "data", "id": "el173161540720260880", "color": "#FF7F0E", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 3, "coordinates": "data", "id": "el173161540720261104", "color": "#2CA02C", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 4, "coordinates": "data", "id": "el173161540720261048", "color": "#D62728", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 5, "coordinates": "data", "id": "el173161540720261832", "color": "#9467BD", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 6, "coordinates": "data", "id": "el173161540720317048", "color": "#8C564B", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 7, "coordinates": "data", "id": "el173161540720316992", "color": "#E377C2", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 8, "coordinates": "data", "id": "el173161540720317664", "color": "#7F7F7F", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 9, "coordinates": "data", "id": "el173161540720318504", "color": "#BCBD22", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 10, "coordinates": "data", "id": "el173161540720319344", "color": "#17BECF", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 11, "coordinates": "data", "id": "el173161540714373248", "color": "#1F77B4", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 12, "coordinates": "data", "id": "el173161540720370408", "color": "#FF7F0E", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 13, "coordinates": "data", "id": "el173161540720371080", "color": "#2CA02C", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 14, "coordinates": "data", "id": "el173161540720371864", "color": "#D62728", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 15, "coordinates": "data", "id": "el173161540720372704", "color": "#9467BD", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 16, "coordinates": "data", "id": "el173161540720427248", "color": "#8C564B", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 17, "coordinates": "data", "id": "el173161540720427864", "color": "#E377C2", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 18, "coordinates": "data", "id": "el173161540720428536", "color": "#7F7F7F", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}, {"data": "data01", "xindex": 0, "yindex": 19, "coordinates": "data", "id": "el173161540720429376", "color": "#BCBD22", "linewidth": 1.5, "dasharray": "none", "alpha": 1, "zorder": 2, "drawstyle": "default"}], "paths": [], "markers": [], "texts": [{"text": "D\u00edas", "position": [0.5, -0.06337181337181337], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "hanging", "rotation": -0.0, "fontsize": 14.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el173161540714765392"}, {"text": "Personas", "position": [-0.07265700483091789, 0.5], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -90.0, "fontsize": 14.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el173161540714942536"}, {"text": "Fallecidos diarios por Comunidad Aut\u00f3noma", "position": [0.5, 1.018037518037518], "coordinates": "axes", "h_anchor": "middle", "v_baseline": "auto", "rotation": -0.0, "fontsize": 18.0, "color": "#000000", "alpha": 1, "zorder": 3, "id": "el173161540714973896"}], "collections": [], "images": [], "sharex": [], "sharey": []}], "data": {"data01": [[737487.0, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN, NaN], [737488.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [737489.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 1.0, 0.0], [737490.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0], [737491.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 0.0], [737492.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 0.0, 0.0, 0.0, 4.0, 0.0], [737493.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0], [737494.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 2.0, 0.0, 0.0, 0.0, 0.0, 13.0, 0.0, 0.0, 0.0, 1.0, 1.0], [737495.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 10.0, 0.0, 0.0, 0.0, 0.0, 1.0], [737496.0, 0.0, 2.0, 1.0, 1.0, 0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 0.0, 1.0, 0.0, 25.0, 0.0, 0.0, 0.0, 5.0, 0.0], [737497.0, 0.0, 1.0, 0.0, 0.0, 0.0, 0.0, 4.0, 1.0, 0.0, 0.0, 0.0, 0.0, 0.0, 25.0, 0.0, 0.0, 0.0, 3.0, 0.0], [737498.0, 2.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0, 2.0, 2.0, 0.0, 3.0, 1.0, 0.0, 5.0, 0.0, 0.0, 0.0, 0.0, 1.0], [737499.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 4.0, 3.0, 2.0, 0.0, 1.0, 0.0, 2.0, 127.0, 0.0, 0.0, 0.0, 9.0, 0.0], [737500.0, 1.0, 4.0, 0.0, 0.0, 0.0, 0.0, 7.0, 3.0, 4.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 1.0, 0.0, 1.0], [737501.0, 4.0, 1.0, 0.0, 0.0, 1.0, 0.0, 0.0, 3.0, 6.0, 0.0, 8.0, 1.0, 1.0, 142.0, 0.0, 0.0, 1.0, 13.0, 1.0], [737502.0, 8.0, 1.0, 0.0, 0.0, 1.0, 1.0, 11.0, 10.0, 23.0, 0.0, 9.0, 3.0, 0.0, 35.0, 0.0, 0.0, 1.0, 4.0, 0.0], [737503.0, 4.0, 2.0, 0.0, 1.0, 0.0, 0.0, 14.0, 7.0, 14.0, 0.0, 2.0, 2.0, 1.0, 108.0, 0.0, 0.0, 1.0, 13.0, 0.0], [737504.0, 7.0, 2.0, 1.0, 0.0, 1.0, 0.0, 0.0, 14.0, 27.0, 0.0, 9.0, 2.0, 1.0, 130.0, 0.0, 0.0, 1.0, 18.0, 2.0], [737505.0, 10.0, 5.0, 3.0, 2.0, 3.0, 1.0, 42.0, 12.0, 40.0, 0.0, 17.0, 2.0, 4.0, 176.0, 0.0, 1.0, 4.0, 14.0, 8.0], [737506.0, 7.0, 2.0, 3.0, 0.0, 2.0, 3.0, 28.0, 19.0, 69.0, 0.0, 19.0, 2.0, 3.0, 217.0, 0.0, 0.0, 5.0, 12.0, 3.0], [737507.0, 11.0, 8.0, 4.0, 6.0, 2.0, 1.0, 33.0, 28.0, 54.0, 0.0, 25.0, 4.0, 6.0, 242.0, 0.0, 1.0, 10.0, 23.0, 4.0], [737508.0, 29.0, 5.0, 10.0, 0.0, 5.0, 3.0, 71.0, 22.0, 37.0, 0.0, 21.0, 8.0, 2.0, 272.0, 0.0, 1.0, 7.0, 13.0, 8.0], [737509.0, 26.0, 3.0, 3.0, 3.0, 5.0, 5.0, 47.0, 41.0, 234.0, 0.0, 28.0, 13.0, 7.0, 290.0, 0.0, 2.0, 2.0, 22.0, 7.0], [737510.0, 21.0, 8.0, 2.0, 4.0, 3.0, 3.0, 53.0, 41.0, 156.0, 0.0, 24.0, 19.0, 5.0, 265.0, 1.0, 3.0, 16.0, 25.0, 6.0]]}, "id": "el173161540668160544", "plugins": [{"type": "reset"}, {"type": "zoom", "button": true, "enabled": false}, {"type": "boxzoom", "button": true, "enabled": false}, {"type": "interactive_legend", "element_ids": [["el173161540714765784", "el173161540714765784pts"], ["el173161540720260880", "el173161540720260880pts"], ["el173161540720261104", "el173161540720261104pts"], ["el173161540720261048", "el173161540720261048pts"], ["el173161540720261832", "el173161540720261832pts"], ["el173161540720317048", "el173161540720317048pts"], ["el173161540720316992", "el173161540720316992pts"], ["el173161540720317664", "el173161540720317664pts"], ["el173161540720318504", "el173161540720318504pts"], ["el173161540720319344", "el173161540720319344pts"], ["el173161540714373248", "el173161540714373248pts"], ["el173161540720370408", "el173161540720370408pts"], ["el173161540720371080", "el173161540720371080pts"], ["el173161540720371864", "el173161540720371864pts"], ["el173161540720372704", "el173161540720372704pts"], ["el173161540720427248", "el173161540720427248pts"], ["el173161540720427864", "el173161540720427864pts"], ["el173161540720428536", "el173161540720428536pts"], ["el173161540720429376", "el173161540720429376pts"]], "labels": ["Andaluc\u00eda", "Arag\u00f3n", "Asturias", "Baleares", "Canarias", "Cantabria", "Castilla-La Mancha", "Castilla y Le\u00f3n", "Catalu\u00f1a", "Ceuta", "C. Valenciana", "Extremadura", "Galicia", "Madrid", "Melilla", "Murcia", "Navarra", "Pa\u00eds Vasco", "La Rioja"], "ax": null, "alpha_unsel": 0.2, "alpha_over": 1.5, "start_visible": [true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true, true]}]});
+  }(mpld3);
+
+
+</script>

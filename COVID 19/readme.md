@@ -15,6 +15,9 @@ Ministerio de Sanidad, Consumo y Bienestar Social: https://www.mscbs.gob.es/prof
  
   **IMPORTANTE:** [Tabla con las fechas de modificación de los archivos csv | Table with files modification dates](fechas.md)
   
+ **NOTA PUBLICADA POR SANIDAD SOBRE LOS DATOS:** Los casos confirmados no provienen de la suma de pacientes hospitalizados, curados y fallecidos, ya que no son excluyentes. Pacientes fallecidos y curados pueden haber precisado hospitalización y por tanto computar en ambos
+grupos. Los pacientes que han precisado UCI también computan en los pacientes que han requerido hospitalización
+  
  
 **Nombre del archivo:** [nacional_covid19.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/nacional_covid19.csv) <br>
 **Nivel administrativo:** Nacional
@@ -48,6 +51,8 @@ Ministerio de Sanidad, Consumo y Bienestar Social: https://www.mscbs.gob.es/prof
 | 2020-03-22 | Datos obtenidos del análisis sobre 18.959 casos notificados con información de edad.                                         |
 | 2020-03-24 | Datos obtenidos del análisis sobre 20.471 casos notificados con información de edad y 20.459 con información de edad y sexo. |
 | 2020-03-25 | Datos obtenidos del análisis sobre 21.872 casos notificados con información de edad y 21.851 con información de edad y sexo. |
+| 2020-03-26 | Datos obtenidos del análisis sobre 32.816 casos notificados con información de edad y 32.807 con información de edad y sexo. |
+| 2020-03-27 | Datos obtenidos del análisis sobre 34.240 casos notificados con información de edad y sexo |
 
  
 <br><br>
@@ -136,3 +141,7 @@ Si quieres avisarnos de tus reutilizaciones o tienes cualquer duda, puedes poner
 [**Dashboard COVID-19 #yomequedoencasa**](https://covid19.inapp.io/)
 
 [**David Jimeno: global pandemic study**](https://github.com/djinasarre/covid_19)
+
+[**Evolución COVID-19 en Canarias**](https://jorgelopezperez.shinyapps.io/covid_canarias/)
+
+[**Javier Álvarez Medina (tinybird.co): API endpoints**](https://ui.tinybird.co/snapshot/41dc2636e8c64aa59bd17ad3d33ce7e3)

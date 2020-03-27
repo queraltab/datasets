@@ -21,6 +21,7 @@ Estos gráficos incluyen una leyenda interactiva que permite al lector ver las c
 
 ### Gráficos por Comunidad Autónoma:
 - [Distribución de los casos confirmados acumulados](https://queraltab.github.io/datasets/Python%20plots/Plots/hoy_distribucion_casos.png): muestra la proporción de casos activos, fallecidos y curados para cada Comunidad Autónoma.
+- [Distribución de los casos acumulados que han precisado hospitalización](https://queraltab.github.io/datasets/Python%20plots/Plots/hoy_distribucion_hospitalizados.png): muestra la proporción de casos que han necesitado ingreso en la UCI para cada Comunidad Autónoma. 
 
 *La escala logarítmica muestra por igual un salto del 10 al 100 que del 100 al 1.000 y sirve para ver de forma más directa el ritmo de propagación del virus. A más pendiente, el ritmo es más veloz y viceversa.*
 
@@ -47,6 +48,7 @@ These plots include an interactive legend that allows the user to see the curves
 
 ### Plot by region:
 - [Distribution of the accumulated number of confirmed cases](https://queraltab.github.io/datasets/Python%20plots/Plots/hoy_distribucion_casos.png): shows the amount of active, deaths and healed by region.
+- [Distribution of the accumulated cases that required hospitalization](https://queraltab.github.io/datasets/Python%20plots/Plots/hoy_distribucion_hospitalizados.png): shows the amount of cases that needed intensive care (UCI) by region. 
 
 *The logarithmic scale shows equally a jump from 10 to 100 than from 100 to 1.000 and is useful to see clearly the spreading pace of the virus. The steeper the curve, the pace is faster and vice versa.*
 

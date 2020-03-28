@@ -282,6 +282,14 @@ population={'Andalucía':8414240,            # Data from INE 2019
             'País Vasco':2207776,
             'La Rioja':316798,
             'Total':47026208}
+dict_title={'cases':'Casos confirmados', 'deaths':'Fallecidos',
+            'healed':'Personas curadas', 
+            'hosp':'Personas que han precisado hospitalización (incluyendo UCI)',
+            'uci':'Personas que han precisado ingreso en la UCI'}
+dict_save={'cases':'casos', 'deaths':'fallecidos',
+            'healed':'curados', 
+            'hosp':'hospitalizados',
+            'uci':'uci'}
 
 #%% Examples of plots with plot_ccaa
 
@@ -311,9 +319,6 @@ plot_distr_cases(dict_df,'Madrid')
 plot_distr_hosp(dict_df, 'Cataluña')
 plot_distr_cases(dict_df,'Cataluña')
 
-#bar_dif_new(df_cases,df_deaths,df_healed,'Cataluña')
-#bar_dif_new(df_cases,df_deaths,df_healed,'Madrid')
-
 # Evolución de algunas regiones desde el primer día en que se registraron más de 50 casos
 plot_log(df_cases, ccaa_5, 'Casos confirmados', min_num=50)
 
@@ -342,44 +347,38 @@ interactive_plot(df_deaths,ccaa[:-1],
 
 #%% Interactive plot of data per 100000 inhabitants
 
-dict_title={'cases':'Casos confirmados', 'deaths':'Fallecidos',
-            'healed':'Personas curadas', 
-            'hosp':'Personas que han precisado hospitalización (incluyendo UCI)',
-            'uci':'Personas que han precisado ingreso en la UCI'}
-dict_save={'cases':'casos', 'deaths':'fallecidos',
-            'healed':'curados', 
-            'hosp':'hospitalizados',
-            'uci':'uci'}
-
-study='cases'
+study=['cases','deaths']
 columns = ccaa
-df = dict_df[study]
-df_by_pop = pd.DataFrame(index=df.index)
-for ca in columns:
-    df_by_pop[ca]=df[ca]/population[ca]*100000
-interactive_plot(df_by_pop,ccaa,
-                 dict_title[study]+' por cada 100000 habitante',
-                 'hoy_'+dict_save[study]+'_por_100000_habitante')
+
+for s in study:
+    df = dict_df[s]
+    df_by_pop = pd.DataFrame(index=df.index)
+    for ca in columns:
+        df_by_pop[ca]=df[ca]/population[ca]*100000
+    interactive_plot(df_by_pop,columns,
+                     dict_title[s]+' por cada 100000 habitante',
+                     'hoy_'+dict_save[s]+'_por_100000_habitante')
 
 #%% Interactive plot of new confirmed cases
 
 columns = ccaa[:-1]
-study='healed'
+study=['cases','deaths']
 logy=False 
 
 logy_save='log_' if logy else ''
-df = dict_df[study]
-shift = df.shift(periods=+1)
-dif = df-shift
-interactive_plot(dif,columns,
-                 dict_title[study]+' diarios por Comunidad Autónoma',
-                 'hoy_'+logy_save+dict_save[study]+'_diarios',
-                 logy=logy)
+for s in study:
+    df = dict_df[s]
+    shift = df.shift(periods=+1)
+    dif = df-shift
+    interactive_plot(dif,columns,
+                     dict_title[s]+' diarios por Comunidad Autónoma',
+                     'hoy_'+logy_save+dict_save[s]+'_diarios',
+                     logy=logy)
 
 #%% Plot of distribution (active, healed, dead)
 
-def plot_global_distr(dict_df,ccaa):
-    fig, axs = plt.subplots(4,5,sharex=True,figsize=(12,10))
+def plot_global_distr_cases(dict_df,ccaa,save_name):
+    fig, axs = plt.subplots(4,5,sharex=True,figsize=(20,10))
     pos=[[0,0],[0,1],[0,2],[0,3],[0,4],
          [1,0],[1,1],[1,2],[1,3],[1,4],
          [2,0],[2,1],[2,2],[2,3],[2,4],
@@ -403,14 +402,14 @@ def plot_global_distr(dict_df,ccaa):
         plt.setp(axs[i[0],i[1]].get_xticklabels(), rotation=70, horizontalalignment='right')
     axs[0,0].legend(loc='lower left', bbox_to_anchor= (0.0, 1.21), ncol=4,
                    borderaxespad=0, frameon=False, fontsize=12)
-    #mpld3.save_html(fig,'docs/hoy_distribucion_casos.html', template_type='simple')    
+    fig.savefig('Plots/'+save_name+'.png')
     
-plot_global_distr(dict_df,ccaa)
+plot_global_distr_cases(dict_df,ccaa,'hoy_distribucion_casos')
 
 #%% Plot of distribution (hospitalization/uci)
 
-def plot_global_distr(dict_df,ccaa):
-    fig, axs = plt.subplots(4,5,sharex=True,figsize=(12,10))
+def plot_global_distr_hosp(dict_df,ccaa,save_name):
+    fig, axs = plt.subplots(4,5,sharex=True,figsize=(20,10))
     pos=[[0,0],[0,1],[0,2],[0,3],[0,4],
          [1,0],[1,1],[1,2],[1,3],[1,4],
          [2,0],[2,1],[2,2],[2,3],[2,4],
@@ -432,7 +431,7 @@ def plot_global_distr(dict_df,ccaa):
         plt.setp(axs[i[0],i[1]].get_xticklabels(), rotation=70, horizontalalignment='right')
     axs[0,0].legend(loc='lower left', bbox_to_anchor= (0.0, 1.21), ncol=4,
                    borderaxespad=0, frameon=False, fontsize=12)
-    #mpld3.save_html(fig,'docs/hoy_distribucion_casos.html', template_type='simple')    
+    fig.savefig('Plots/'+save_name+'.png')    
     
-plot_global_distr(dict_df,ccaa)
+plot_global_distr_hosp(dict_df,ccaa,'hoy_distribucion_hospitalizados')
 

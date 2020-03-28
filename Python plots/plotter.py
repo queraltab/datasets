@@ -82,7 +82,7 @@ def plot_ccaa(df, columns, title, rate=False, dif=False, pop=False):
 def plot_distr_hosp(dict_df, ca):
     '''
     Plots the line of cases that needed hospitalization and fills in different
-    colours the part that is in intensive care and the rest
+    colors the part that is in intensive care and the rest
     Parameters
     ----------
     dict_df : dictionary
@@ -100,9 +100,6 @@ def plot_distr_hosp(dict_df, ca):
 
     plt.figure()
     plt.plot(x,y2,label='Casos que han precisado hospitalización (incluyendo UCI)')
-#    plt.plot(df_hosp[ca])
-#    plt.plot(df_uci[x[0]:][ca])
-    #plt.plot(df_uci[df_hosp.index[0]:][ca] + df_hosp[ca])
     plt.title('Distribución de los casos que han precisado hospitalización en ' + ('Catalunya' if ca=='Cataluña' else ca))
     plt.fill_between(x, y2, y1, alpha=0.4, label='Casos sin ingreso en UCI')
     plt.fill_between(x, y1, y0, alpha=0.4, label='Casos con ingreso en UCI')
@@ -111,7 +108,7 @@ def plot_distr_hosp(dict_df, ca):
 def plot_distr_cases(dict_df,ca):
     '''
     Plots the line of confirmed cases and fills in different
-    colours distinguishing: active, deaths and healed.
+    colors distinguishing: active, deaths and healed.
     Parameters
     ----------
     dict_df : dictionary
@@ -247,6 +244,80 @@ def interactive_plot(df,columns,title,save_name,logy=False,min_num=50,show=False
         mpld3.show()
     mpld3.save_html(fig,'docs/'+save_name+'.html', template_type='simple')
 
+def plot_global_distr_cases(dict_df,ccaa,save_name):
+    '''
+    Graph with a subplot for each region of Spain. Plots the line of confirmed 
+    cases and fills in different colors distinguishing: active, deaths and healed.
+    Parameters
+    ----------
+    dict_df : dictionary
+        dictionary of all the data frames with items being: cases, death, hosp, healed, uci
+    ccaa: list
+        List with the names in string of all the regions of Spain
+    save_name: string
+        Name with which the plot is saved
+    '''
+    fig, axs = plt.subplots(4,5,sharex=True,figsize=(20,10))
+    pos=[[0,0],[0,1],[0,2],[0,3],[0,4],
+         [1,0],[1,1],[1,2],[1,3],[1,4],
+         [2,0],[2,1],[2,2],[2,3],[2,4],
+         [3,0],[3,1],[3,2],[3,3],[3,4]]
+    df_cases=dict_df['cases']
+    df_deaths=dict_df['deaths']
+    df_healed=dict_df['healed']
+    x=df_healed.index
+    fig.suptitle('Distribución de los casos registrados por Comunidad Autónoma',fontsize=16)
+    for i, ca in zip(pos, ccaa):
+        y1=df_cases[x[0]:][ca]
+        y2=df_deaths[x[0]:][ca]+df_healed[x[0]:][ca]
+        y3=df_healed[x[0]:][ca]
+        axs[i[0],i[1]].plot(x,y1,color='red',label='Casos confirmados acumulados')
+        axs[i[0],i[1]].set_title(ca)
+        axs[i[0],i[1]].fill_between(x, y1, y2, alpha=0.4, label='Casos activos')
+        axs[i[0],i[1]].fill_between(x, y2, y3, alpha=0.4, label='Personas fallecidas acumuladas')
+        axs[i[0],i[1]].fill_between(x, y3, [0]*len(x), alpha=0.4, label='Personas curadas acumuladas')
+        plt.setp(axs[i[0],i[1]].get_xticklabels(), rotation=70, horizontalalignment='right')
+    axs[0,0].legend(loc='lower left', bbox_to_anchor= (0.0, 1.21), ncol=4,
+                   borderaxespad=0, frameon=False, fontsize=12)
+    fig.savefig('Plots/'+save_name+'.png')
+    
+def plot_global_distr_hosp(dict_df,ccaa,save_name):
+    '''
+    Figure with a subplot for each region of Spain. Plots the line of cases 
+    that needed hospitalization and fills in different colors the part that 
+    is in intensive care and the rest
+    Parameters
+    ----------
+    dict_df : dictionary
+        dictionary of all the data frames with items being: cases, death, hosp, healed, uci
+    ccaa: list
+        List with the names in string of all the regions of Spain
+    save_name: string
+        Name with which the plot is saved
+    '''
+    fig, axs = plt.subplots(4,5,sharex=True,figsize=(20,10))
+    pos=[[0,0],[0,1],[0,2],[0,3],[0,4],
+         [1,0],[1,1],[1,2],[1,3],[1,4],
+         [2,0],[2,1],[2,2],[2,3],[2,4],
+         [3,0],[3,1],[3,2],[3,3],[3,4]]
+    df_hosp=dict_df['hosp']
+    df_uci=dict_df['uci']
+    x=df_hosp.index
+    fig.suptitle('Distribución de los casos que han precisado hospitalización por Comunidad Autónoma',fontsize=16)
+    for i, ca in zip(pos, ccaa):
+        y0=[0]*len(x)
+        y1=df_uci[x[0]:][ca]
+        y2=df_hosp[ca]          # Because UCI is a subset of hosp
+        
+        axs[i[0],i[1]].plot(x,y2,color='red',label='Casos acumulados que han precisado hospitalización (incluyendo UCI)')
+        axs[i[0],i[1]].set_title(ca)
+        axs[i[0],i[1]].fill_between(x, y2, y1, alpha=0.4, label='Casos sin ingreso en UCI')
+        axs[i[0],i[1]].fill_between(x, y1, y0, alpha=0.4, label='Casos con ingreso en UCI')
+        plt.setp(axs[i[0],i[1]].get_xticklabels(), rotation=70, horizontalalignment='right')
+    axs[0,0].legend(loc='lower left', bbox_to_anchor= (0.0, 1.21), ncol=4,
+                   borderaxespad=0, frameon=False, fontsize=12)
+    fig.savefig('Plots/'+save_name+'.png')       
+
 #%% Importing data
 
 df_cases = csv_to_df(DATA_PATH+'ccaa_covid19_casos.csv')         # número de casos registrados por Comunidad Autónoma.
@@ -376,62 +447,10 @@ for s in study:
                      logy=logy)
 
 #%% Plot of distribution (active, healed, dead)
-
-def plot_global_distr_cases(dict_df,ccaa,save_name):
-    fig, axs = plt.subplots(4,5,sharex=True,figsize=(20,10))
-    pos=[[0,0],[0,1],[0,2],[0,3],[0,4],
-         [1,0],[1,1],[1,2],[1,3],[1,4],
-         [2,0],[2,1],[2,2],[2,3],[2,4],
-         [3,0],[3,1],[3,2],[3,3],[3,4]]
-#         [4,0],[4,1],[4,2],[4,3]
-    df_cases=dict_df['cases']
-    df_deaths=dict_df['deaths']
-    df_healed=dict_df['healed']
-    x=df_healed.index
-    fig.suptitle('Distribución de los casos registrados por Comunidad Autónoma',fontsize=16)
-    for i, ca in zip(pos, ccaa):
-        y1=df_cases[x[0]:][ca]
-        y2=df_deaths[x[0]:][ca]+df_healed[x[0]:][ca]
-        y3=df_healed[x[0]:][ca]
-        axs[i[0],i[1]].plot(x,y1,color='red',label='Casos confirmados acumulados')
-        axs[i[0],i[1]].set_title(ca)
-        axs[i[0],i[1]].fill_between(x, y1, y2, alpha=0.4, label='Casos activos')
-        axs[i[0],i[1]].fill_between(x, y2, y3, alpha=0.4, label='Personas fallecidas acumuladas')
-        axs[i[0],i[1]].fill_between(x, y3, [0]*len(x), alpha=0.4, label='Personas curadas acumuladas')
-#        axs[i[0],i[1]].set_xticks(rotate=-45)
-        plt.setp(axs[i[0],i[1]].get_xticklabels(), rotation=70, horizontalalignment='right')
-    axs[0,0].legend(loc='lower left', bbox_to_anchor= (0.0, 1.21), ncol=4,
-                   borderaxespad=0, frameon=False, fontsize=12)
-    fig.savefig('Plots/'+save_name+'.png')
     
 plot_global_distr_cases(dict_df,ccaa,'hoy_distribucion_casos')
 
 #%% Plot of distribution (hospitalization/uci)
-
-def plot_global_distr_hosp(dict_df,ccaa,save_name):
-    fig, axs = plt.subplots(4,5,sharex=True,figsize=(20,10))
-    pos=[[0,0],[0,1],[0,2],[0,3],[0,4],
-         [1,0],[1,1],[1,2],[1,3],[1,4],
-         [2,0],[2,1],[2,2],[2,3],[2,4],
-         [3,0],[3,1],[3,2],[3,3],[3,4]]
-#         [4,0],[4,1],[4,2],[4,3]
-    df_hosp=dict_df['hosp']
-    df_uci=dict_df['uci']
-    x=df_hosp.index
-    fig.suptitle('Distribución de los casos que han precisado hospitalización por Comunidad Autónoma',fontsize=16)
-    for i, ca in zip(pos, ccaa):
-        y0=[0]*len(x)
-        y1=df_uci[x[0]:][ca]
-        y2=df_hosp[ca]          # Because UCI is a subset of hosp
-        
-        axs[i[0],i[1]].plot(x,y2,color='red',label='Casos acumulados que han precisado hospitalización (incluyendo UCI)')
-        axs[i[0],i[1]].set_title(ca)
-        axs[i[0],i[1]].fill_between(x, y2, y1, alpha=0.4, label='Casos sin ingreso en UCI')
-        axs[i[0],i[1]].fill_between(x, y1, y0, alpha=0.4, label='Casos con ingreso en UCI')
-        plt.setp(axs[i[0],i[1]].get_xticklabels(), rotation=70, horizontalalignment='right')
-    axs[0,0].legend(loc='lower left', bbox_to_anchor= (0.0, 1.21), ncol=4,
-                   borderaxespad=0, frameon=False, fontsize=12)
-    fig.savefig('Plots/'+save_name+'.png')    
-    
+ 
 plot_global_distr_hosp(dict_df,ccaa,'hoy_distribucion_hospitalizados')
 

@@ -39,15 +39,15 @@ These plots include an interactive legend that allows the user to see the curves
         - [Logarithmic scale plot](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_log_casos_acumulados.html)
     - [Daily](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_casos_diarios.html)
     - [Accumulated confirmed cases per 100.000 population](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_casos_por_100000_habitante.html)
-- **Deaths**: 
+- **Deceased**: 
     - Accumulated number of registered deaths by region
         - [Normal scale plot](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_acumulados.html)
         - [Logarithmic scale plot](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_log_fallecidos_acumulados.html)
     - [Daily](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_diarios.html)
-    - [Accumulated death per 100.000 population](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_por_100000_habitante.html)
+    - [Accumulated deceased per 100.000 population](https://queraltab.github.io/datasets/Python%20plots/docs/hoy_fallecidos_por_100000_habitante.html)
 
 ### Plot by region:
-- [Distribution of the accumulated number of confirmed cases](https://queraltab.github.io/datasets/Python%20plots/Plots/hoy_distribucion_casos.png): shows the amount of active, deaths and healed by region.
+- [Distribution of the accumulated number of confirmed cases](https://queraltab.github.io/datasets/Python%20plots/Plots/hoy_distribucion_casos.png): shows the amount of active, deceased and recovered by region.
 - [Distribution of the accumulated cases that required hospitalization](https://queraltab.github.io/datasets/Python%20plots/Plots/hoy_distribucion_hospitalizados.png): shows the amount of cases that needed intensive care (UCI) by region. 
 
 *The logarithmic scale shows equally a jump from 10 to 100 than from 100 to 1.000 and is useful to see clearly the spreading pace of the virus. The steeper the curve, the pace is faster and vice versa.*

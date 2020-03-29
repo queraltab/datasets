@@ -364,34 +364,34 @@ dict_save={'cases':'casos', 'deaths':'fallecidos',
 
 #%% Examples of plots with plot_ccaa
 
-# Casos registrados
-plot_ccaa(df_cases, ccaa_5, 'Casos registrados', rate=True, dif=True, pop=True)
-plot_ccaa(df_cases, ['Total'], 'Casos registrados', rate=True, dif=True)
-plot_ccaa(df_cases, ccaa_5+['Total'], 'Casos registrados', rate=True, dif=True)
-plot_ccaa(df_cases, ccaa, 'Casos registrados', rate=True, dif=True)
-plot_ccaa(df_cases, ccaa, 'Casos registrados', pop=True)
-
-# Fallecidos
-plot_ccaa(df_deaths, ccaa_5, 'Fallecidos registrados', rate=True, dif=True,pop=True)
-
-# Casos han precisado hospitalización
-plot_ccaa(df_uci, ccaa_5, 'Casos han precisado ingreso en UCI')
-plot_ccaa(df_hosp, ccaa_5, 'Casos han precisado hospitalización (incluyendo UCI)')
-
-# Personas curadas
-plot_ccaa(df_healed, ccaa_5, 'Personas curadas registradas')
+## Casos registrados
+#plot_ccaa(df_cases, ccaa_5, 'Casos registrados', rate=True, dif=True, pop=True)
+#plot_ccaa(df_cases, ['Total'], 'Casos registrados', rate=True, dif=True)
+#plot_ccaa(df_cases, ccaa_5+['Total'], 'Casos registrados', rate=True, dif=True)
+#plot_ccaa(df_cases, ccaa, 'Casos registrados', rate=True, dif=True)
+#plot_ccaa(df_cases, ccaa, 'Casos registrados', pop=True)
+#
+## Fallecidos
+#plot_ccaa(df_deaths, ccaa_5, 'Fallecidos registrados', rate=True, dif=True,pop=True)
+#
+## Casos han precisado hospitalización
+#plot_ccaa(df_uci, ccaa_5, 'Casos han precisado ingreso en UCI')
+#plot_ccaa(df_hosp, ccaa_5, 'Casos han precisado hospitalización (incluyendo UCI)')
+#
+## Personas curadas
+#plot_ccaa(df_healed, ccaa_5, 'Personas curadas registradas')
 
 
 #%% Study of one CA
 
-# Distribución de los casos en Madrid y Cataluña
-plot_distr_hosp(dict_df, 'Madrid')
-plot_distr_cases(dict_df,'Madrid')
-plot_distr_hosp(dict_df, 'Cataluña')
-plot_distr_cases(dict_df,'Cataluña')
-
-# Evolución de algunas regiones desde el primer día en que se registraron más de 50 casos
-plot_log(df_cases, ccaa_5, 'Casos confirmados', min_num=50)
+## Distribución de los casos en Madrid y Cataluña
+#plot_distr_hosp(dict_df, 'Madrid')
+#plot_distr_cases(dict_df,'Madrid')
+#plot_distr_hosp(dict_df, 'Cataluña')
+#plot_distr_cases(dict_df,'Cataluña')
+#
+## Evolución de algunas regiones desde el primer día en que se registraron más de 50 casos
+#plot_log(df_cases, ccaa_5, 'Casos confirmados', min_num=50)
 
 
 #%% Interactive plot

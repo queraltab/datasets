@@ -32,8 +32,10 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 | hospitalizados | Casos acumulados que han precisado ingreso en UCI                 | Accumulated cases that have required admission to the IC                          | Número     | 7       |
 
 
+<br><br>
 **Nombre del archivo:** [nacional_covid19_rango_edad.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/nacional_covid19_rango_edad.csv) <br>
-**Nivel administrativo:** Nacional
+**Nivel administrativo:** Nacional<br>
+**IMPORTANTE:** Datos obtenidos sobre los casos notificados con información de edad y sexo. [Dataset con las notas de los casos analizados cada día por rango de edad y sexo](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/nota_nacional_covid_19_rango_edad.csv)
 
 | Campo             | Descripción                                                       | Description                                                                       | Formato    | Ejemplo |
 |-------------------|-------------------------------------------------------------------|-----------------------------------------------------------------------------------|------------|---------|
@@ -45,15 +47,6 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 | ingresos_uci      | Casos acumulados que han precisado ingreso en UCI                 | Accumulated cases that have required admission to the IC (Data obtained from the analysis of a daily variable percentage of cases reported)                         | Número     | 7       |
 | fallecidos        | Personas fallecidas acumuladas                                    | Accumulated deceased (Data obtained from the analysis of a daily variable percentage of cases reported)                                                              | Número     | 7       |
 
-
-| Fecha      | Nota sobre los datos publicados con información de edad y sexo                                                                                                                         |
-|------------|------------------------------------------------------------------------------------------------------------------------------|
-| 2020-03-22 | Datos obtenidos del análisis sobre 18.959 casos notificados con información de edad.                                         |
-| 2020-03-24 | Datos obtenidos del análisis sobre 20.471 casos notificados con información de edad y 20.459 con información de edad y sexo. |
-| 2020-03-25 | Datos obtenidos del análisis sobre 21.872 casos notificados con información de edad y 21.851 con información de edad y sexo. |
-| 2020-03-26 | Datos obtenidos del análisis sobre 32.816 casos notificados con información de edad y 32.807 con información de edad y sexo. |
-| 2020-03-27 | Datos obtenidos del análisis sobre 34.240 casos notificados con información de edad y sexo |
-| 2020-03-28 | Datos obtenidos del análisis sobre 36.197 casos notificados con información de edad y sexo |
 
  
 <br><br>
@@ -228,6 +221,10 @@ Si quieres avisarnos de tus reutilizaciones o tienes cualquer duda, puedes poner
 
 [**Evolución COVID-19 en Canarias**](https://jorgelopezperez.shinyapps.io/covid_canarias/)
 
-[**Javier Álvarez Medina (tinybird.co): API endpoints**](https://ui.tinybird.co/snapshot/41dc2636e8c64aa59bd17ad3d33ce7e3c
+[**Javier Álvarez Medina (tinybird.co): API endpoints**](https://ui.tinybird.co/snapshot/41dc2636e8c64aa59bd17ad3d33ce7e3)
 
 [**Pedro del Río Marrón: Data from Spain of COVID-19 (by Datadista) as a service**](hhttps://github.com/pedelriomarron/spanish-api-covid19)
+
+[**@alvarospm: COVID-19 Situación en Castilla y León**](https://comunidadcovid.maps.arcgis.com/apps/opsdashboard/index.html#/c2d5e0da802944979728925a35868fe9)
+
+[**Roke Alvarez Masso: Resumen de la Situación en España**](https://cultureofinsight.shinyapps.io/covid-19/)

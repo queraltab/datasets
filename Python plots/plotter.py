@@ -22,7 +22,8 @@ def csv_to_df(csv_file):
     df = pd.read_csv(csv_file)
     days = pd.to_datetime(list(df.columns)[2:], format='%Y/%m/%d')
     regions = list(df.CCAA.values)
-    data = df.as_matrix(columns=list(df.columns)[2:])
+    # data = df.as_matrix(columns=list(df.columns)[2:])
+    data = df.iloc[:,2:].values
     df_new = pd.DataFrame(data.T, index=days, columns=regions)
     return df_new
 

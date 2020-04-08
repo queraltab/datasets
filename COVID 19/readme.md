@@ -6,6 +6,7 @@ Extracción, limpieza y normalización de las tablas de la situación diaria acu
 
 - Ministerio de Sanidad, Consumo y Bienestar Social: https://www.mscbs.gob.es/profesionales/saludPublica/ccayes/alertasActual/nCov-China/situacionActual.htm  y gabinete de prensa del Ministerio de Sanidad. <br>
 - Departamento de Seguridad Nacional: https://www.dsn.gob.es/gl/current-affairs/press-room<br>
+- Instituto de Salud Carlos III. Situación de COVID-19 en España https://covid19.isciii.es/
 - BOE: Crisis Sanitaria COVID-19 https://www.boe.es/biblioteca_juridica/codigos/codigo.php?id=355&modo=2&nota=0&tab=2<br>
 - Ministerio de Transportes, Movilidad y Agenda Urbana https://www.mitma.gob.es/transporte-terrestre/punto-de-informacion-de-servicios-de-restauracion
  
@@ -31,19 +32,23 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
  **NOTA PUBLICADA POR SANIDAD SOBRE LOS DATOS (02/04/2020):** Indican que los datos de hospitalización y UCI en Madrid, hospitalizados en Castilla La Mancha y Comunidad Valenciana son datos de prevalencia.
  
  **NOTA PUBLICADA POR SANIDAD SOBRE LOS DATOS (03/04/2020):** Indican que los datos UCI de Castilla La Mancha, Castilla y León, Comunidad Valenciana, Galicia y Madrid son datos de prevalencia. Es decir, personas ingresadas en UCI a día de hoy.
+ 
+ **(\*\*)NOTA SOBRE LOS DATOS (07/04/2020)**: Los datos de Hospitalizados de Castilla La Mancha, Comunidad Valenciana y Madrid son datos de prevalencia. Los datos de ingresos UCI de Castilla La Mancha, Castilla y León, Comunidad Valenciana, Galicia y Madrid son datos de prevalencia. Por este motivo, desde 07/04/2020 los datos de hospitalizados de Castilla y León son el acumulado mientras que en fechas anteriores es el dato de prevalencia.
   
+ **NOTA SOBRE LOS DATOS PUBLICADA POR DEL INSTITUTO DE SALUD CARLOS III(07/04/2020)**: El objetivo de los datos que se publican en [esta web](https://covid19.isciii.es/) (Basada en la notificación diaria de casos agregados de COVID-19 al Ministerio de Sanidad) es saber el número de casos acumulados a la fecha y que por tanto no se puede deducir que la diferencia entre un día y el anterior es el número de casos nuevos ya que esos casos pueden haber sido recuperados de fechas anteriores. Cualquier inferencia que se haga sobre las diferencias de un día para otro deben hacerse con precaución y son únicamente la responsabilidad el autor. Los datos de estas comunidades son datos de prevalencia (personas ingresadas a fecha de hoy) No reflejan el total de personas que han sido hospitalizadas o ingresadas en UCI  a lo largo del periodo de notificación(CL-CM-MD-VC-MC)
+
  
 **Nombre del archivo:** [nacional_covid19.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/nacional_covid19.csv) <br>
 **Nivel administrativo:** Nacional
  
  | Campo          | Descripción                                                       | Description                                                                       | Formato    | Ejemplo |
 |----------------|-------------------------------------------------------------------|-----------------------------------------------------------------------------------|------------|---------|
-| fecha          | Fecha de publicación                                              | Date of notification                                                              | YYYY-MM-DD | 2020-03-25 |
+| fecha          | Fecha de publicación                                              | Publication date                                                              | YYYY-MM-DD | 2020-03-25 |
 | casos          | Casos confirmados acumulados                                      | Accumulated confirmed cases                                                       | Número     | 7       |
 | altas          | Personas curadas acumuladas                                       | Accumulated recovered                                                             | Número     | 7       |
 | fallecimientos | Personas fallecidas acumuladas                                    | Accumulated deceased                                                              | Número     | 7       |
-| ingresos_uci   | Casos acumulados que han precisado ingreso en UCI | Accumulated cases that have required admission to the IC | Número     | 7       |
-| hospitalizados | Casos acumulados que han precisado hospitalización (incluyen UCI)                 | Accumulated cases that have required hospitalization (include admitted to the IC)                          | Número     | 7       |
+| ingresos_uci   | Casos acumulados que han precisado ingreso en UCI(\*\*) | Accumulated cases that have required admission to the IC(\*\*) | Número     | 7       |
+| hospitalizados | Casos acumulados que han precisado hospitalización (incluyen UCI)(\*\*)                 | Accumulated cases that have required hospitalization (include admitted to the IC)(\*\*)                          | Número     | 7       |
 
 
 <br><br>
@@ -53,7 +58,7 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 
 | Campo             | Descripción                                                       | Description                                                                       | Formato    | Ejemplo |
 |-------------------|-------------------------------------------------------------------|-----------------------------------------------------------------------------------|------------|---------|
-| fecha             | Fecha de publicación                                              | Date of notification                                                              | YYYY-MM-DD | 2020-03-25 |
+| fecha             | Fecha de publicación                                              | Publication date                                                              | YYYY-MM-DD | 2020-03-25 |
 | rango_edad        | Grupos de edad                                                    | age range                                                                         | Texto      | 0-9     |
 | sexo              | Sexo                                                              | gender                                                                            | Texto      | Mujeres |
 | casos_confirmados | Casos confirmados acumulados                                      | Accumulated confirmed cases (Data obtained from the analysis of a daily variable percentage of cases reported)                                                       | Número     | 7       |
@@ -72,13 +77,13 @@ Description: Accumulated number of confirmed cases registered by Autonomous Comm
 |------------|----------------------|----------------------------------------------------------------------|------------|------------|
 | cod_ine    | Código INE de CCAA   | National Statistics Institute code of the autonomous community | Texto      | 01         |
 | CCAA       | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
-| 2020-03-25 | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| 2020-03-25 | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 
 **Nombre del archivo (long format):** [ccaa_covid19_casos_long.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_casos_long.csv) <br>
 
 | Campo   | Descripción          | Description                                                          | Formato    | Ejemplo    |
 |---------|----------------------|----------------------------------------------------------------------|------------|------------|
-| fecha   | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| fecha   | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 | cod_ine | Código INE de CCAA   | National Statistics Institute (INE) code of the autonomous community | Texto      | 01         |
 | CCAA    | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
 | total   | Casos confirmados | confirmed cases registered                                               | Número     | 7          |
@@ -94,59 +99,59 @@ Description: Accumulated number of deceased cases registered by Autonomous Commu
 |------------|----------------------|----------------------------------------------------------------------|------------|------------|
 | cod_ine    | Código INE de CCAA   | National Statistics Institute code of the autonomous community | Texto      | 01         |
 | CCAA       | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
-| 2020-03-25 | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| 2020-03-25 | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 
 **Nombre del archivo:** [ccaa_covid19_fallecidos_long.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_fallecidos_long.csv) <br>
 
 | Campo   | Descripción          | Description                                                          | Formato    | Ejemplo    |
 |---------|----------------------|----------------------------------------------------------------------|------------|------------|
-| fecha   | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| fecha   | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 | cod_ine | Código INE de CCAA   | National Statistics Institute (INE) code of the autonomous community | Texto      | 01         |
 | CCAA    | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
 | total   | Fallecidos | Deceased cases registered                                               | Número     | 7          |
 
 <br><br>
 **Nivel administrativo:** Comunidad Autónoma<br>
-Descripción: Acumulado del número de pacientes que han precisado hospitalización (incluye UCI) por Comunidad Autónoma.<br>
-Description: Accumulated number of deceased cases registered by Autonomous Community<br>
+Descripción: Acumulado del número de pacientes que han precisado hospitalización (incluye UCI) por Comunidad Autónoma.(\*\*)<br>
+Description: Accumulated number of deceased cases registered by Autonomous Community(\*\*)<br>
 **Nombre del archivo:** [ccaa_covid19_hospitalizados.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_hospitalizados.csv) <br>
 
 | Campo      | Descripción          | Description                                                          | Formato    | Ejemplo    |
 |------------|----------------------|----------------------------------------------------------------------|------------|------------|
 | cod_ine    | Código INE de CCAA   | National Statistics Institute code of the autonomous community | Texto      | 01         |
 | CCAA       | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
-| 2020-03-25 | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| 2020-03-25 | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 
 **Nombre del archivo:** [ccaa_covid19_hospitalizados_long.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_hospitalizados_long.csv) <br>
 
 | Campo   | Descripción          | Description                                                          | Formato    | Ejemplo    |
 |---------|----------------------|----------------------------------------------------------------------|------------|------------|
-| fecha   | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| fecha   | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 | cod_ine | Código INE de CCAA   | National Statistics Institute (INE) code of the autonomous community | Texto      | 01         |
 | CCAA    | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
-| total   | Pacientes que han precisado hospitalización (incluye UCI) | Cases that have required hospitalization (include admitted to the IC)                                              | Número     | 7          |
+| total   | Pacientes que han precisado hospitalización (incluye UCI)(\*\*) | Cases that have required hospitalization (include admitted to the IC)(\*\*)                                              | Número     | 7          |
 
 
 <br><br>
 **Nivel administrativo:** Comunidad Autónoma<br>
-Descripción: Acumulado del número de pacientes que han precisado ingreso en la UCI registrados por Comunidad Autónoma.<br>
-Description:Accumulated cases that have required admission to the IC by Autonomous Community<br>
+Descripción: Acumulado del número de pacientes que han precisado ingreso en la UCI registrados por Comunidad Autónoma.(\*\*)<br>
+Description:Accumulated cases that have required admission to the IC by Autonomous Community(\*\*)<br>
 **Nombre del archivo:** [ccaa_covid19_uci.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_uci.csv) <br>
 
 | Campo      | Descripción          | Description                                                          | Formato    | Ejemplo    |
 |------------|----------------------|----------------------------------------------------------------------|------------|------------|
 | cod_ine    | Código INE de CCAA   | National Statistics Institute code of the autonomous community | Texto      | 01         |
 | CCAA       | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
-| 2020-03-25 | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| 2020-03-25 | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 
 **Nombre del archivo:** [ccaa_covid19_uci_long.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_uci_long.csv) <br>
 
 | Campo   | Descripción          | Description                                                          | Formato    | Ejemplo    |
 |---------|----------------------|----------------------------------------------------------------------|------------|------------|
-| fecha   | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| fecha   | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 | cod_ine | Código INE de CCAA   | National Statistics Institute (INE) code of the autonomous community | Texto      | 01         |
 | CCAA    | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
-| total   | Pacientes que han precisado ingreso en la UCI | Cases that have required admission to the IC                                              | Número     | 7          |
+| total   | Pacientes que han precisado ingreso en la UCI(\*\*) | Cases that have required admission to the IC(\*\*)                                              | Número     | 7          |
 
 <br><br>
 **Nivel administrativo:** Comunidad Autónoma<br>
@@ -158,42 +163,63 @@ Description: Accumulated number of accumulated recovered cases registered by Aut
 |------------|----------------------|----------------------------------------------------------------------|------------|------------|
 | cod_ine    | Código INE de CCAA   | National Statistics Institute code of the autonomous community | Texto      | 01         |
 | CCAA       | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
-| 2020-03-25 | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| 2020-03-25 | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 
 **Nombre del archivo:** [ccaa_covid19_altas_long.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_altas_long.csv) <br>
 
 | Campo   | Descripción          | Description                                                          | Formato    | Ejemplo    |
 |---------|----------------------|----------------------------------------------------------------------|------------|------------|
-| fecha   | Fecha de publicación | Date of notification                                                 | YYYY-MM-DD | 2020-03-25 |
+| fecha   | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
 | cod_ine | Código INE de CCAA   | National Statistics Institute (INE) code of the autonomous community | Texto      | 01         |
 | CCAA    | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
 | total   | Personas curadas | Accumulated recovered cases                                               | Número     | 7          |
 
+
 <br><br>
 **Nivel administrativo:** Comunidad Autónoma<br>
-Descripción: Número acumulado de mascarillas repartidas por CCAA por el Ministerio de Sanidad desde 2020-03-10 a 2020-03-22.
+Descripción: Número de casos registradas por Comunidad Autónoma.<br>
+Description: Accumulated number of cases registered by Autonomous Community<br>
+**Nombre del archivo:** [ccaa_covid19_datos_isciii.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_datos_isciii.csv) <br>
+| Campo          | Descripción                                                           | Description                                                                           | Formato    | Ejemplo    |
+|----------------|-----------------------------------------------------------------------|---------------------------------------------------------------------------------------|------------|------------|
+| fecha          | Fecha de notificación                                                 | Date of notification                                                                  | YYYY-MM-DD | 2020-03-20 |
+| cod_ine        | Código INE de CCAA                                                    | National Statistics Institute (INE) code of the autonomous community                  | Texto      | 11         |
+| CCAA           | Comunidad autónoma                                                    | Autonomous community                                                                  | Texto      | Madrid     |
+| Casos          | Casos confirmados acumulados                                          | Accumulated confirmed cases                                                           | Número     | 7          |
+| Hospitalizados | Casos acumulados que han precisado hospitalización (incluyen UCI)(**) | Accumulated cases that have required hospitalization (include admitted to the IC)(**) | Número     | 7          |
+| UCI            | Casos acumulados que han precisado ingreso en UCI(**)                 | Accumulated cases that have required admission to the IC(**)                          | Número     | 7          |
+| Fallecidos     | Personas fallecidas acumuladas                                        | Accumulated deceased                                                                  | Número     | 7          |
+| Recuperados    | Personas curadas acumuladas	                                          | Accumulated recovered                                                           | Número     | 7          |
+
+<br><br>
 **Nombre del archivo:** [ccaa_covid19_mascarillas.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_mascarillas.csv) <br>
+**Nivel administrativo:** Comunidad Autónoma<br>
+**Descripción:** Número acumulado de mascarillas repartidas por CCAA por el Ministerio de Sanidad desde 2020-03-10 a 2020-03-22.
 
 <br><br>
 **Nombre del archivo:** [ccaa_camas_uci_2017.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_camas_uci_2017.csv) <br>
 **Nivel administrativo:** Comunidad Autónoma<br>
 **Año de publicación:** 2017<br>
-Descripción: Número de camas UCI por CCAA. Dato extraído de los microdatos de la [Estadística de Centros Sanitarios de Atención Especializada (SIAE)](https://www.mscbs.gob.es/estadEstudios/estadisticas/estHospiInternado/inforAnual/homeESCRI.htm) de 2017. Último dato oficial disponible. Utilizado en el articulo: [**Incidencia de la COVID-19 en las camas UCI en España**](https://datadista.com/coronavirus/camas-uci/)
+**Descripción:** Número de camas UCI por CCAA. Dato extraído de los microdatos de la [Estadística de Centros Sanitarios de Atención Especializada (SIAE)](https://www.mscbs.gob.es/estadEstudios/estadisticas/estHospiInternado/inforAnual/homeESCRI.htm) de 2017. Último dato oficial disponible. Utilizado en el articulo: [**Incidencia de la COVID-19 en las camas UCI en España**](https://datadista.com/coronavirus/camas-uci/)
 
 <br><br>
+**Nombre del archivo:** [distritos_madrid_casos.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/distritos_madrid_casos.csv)<br>
+**Nivel administrativo:** Distritos de Madrid<br>
+**Descripción:** Situación epidemiológica actual en los distritos de la ciudad de Madrid<br>
+**Fuente:** [Consejería de Sanidad de la Comunidad de Madrid](https://www.comunidad.madrid/servicios/salud/2019-nuevo-coronavirus)
+
+<br><br>
+**Nombre del archivo:** [alojamientos_turisticos_boe_2020_4194.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/alojamientos_turisticos_boe_2020_4194.csv)<br>
 **Nivel administrativo:** Municipio<br>
-Descripción: Alojamientos turísticos declarados servicio esencial por COVID-19. Destinados al alojamiento del personal sanitario, de abastecimiento, mantenimiento, reparación y obras 
+**Descripción:** Alojamientos turísticos declarados servicio esencial por COVID-19. Destinados al alojamiento del personal sanitario, de abastecimiento, mantenimiento, reparación y obras 
 de interés general y todos los ligados a las actividades consideradas esenciales.<br>
-**Fuente:** [Orden TMA/305/2020](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2020-4194)<br>
-**Nombre del archivo:** [alojamientos_turisticos_boe_2020_4194.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/alojamientos_turisticos_boe_2020_4194.csv)
+**Fuente:** [Orden TMA/305/2020](https://www.boe.es/diario_boe/txt.php?id=BOE-A-2020-4194)
 
 <br><br>
+**Nombre del archivo:** [puntos_restauracion_comida_para_llevar.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/puntos_restauracion_comida_para_llevar.csv)<br>
 **Nivel administrativo:** Municipio<br>
-Descripción: Listado con los puntos de restauración y tiendas con venta de comida preparada para llevar para trabajadores cuyo trabajo es básico para mantener servicios esenciales y de abastecimiento.<br>
-**Fuente:** [Ministerio de Transportes, Movilidad y Agenda Urbana](https://www.mitma.gob.es/transporte-terrestre/punto-de-informacion-de-servicios-de-restauracion)<br>
-**Nombre del archivo:** [puntos_restauracion_comida_para_llevar.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/puntos_restauracion_comida_para_llevar.csv)
-
-
+**Descripción:** Listado con los puntos de restauración y tiendas con venta de comida preparada para llevar para trabajadores cuyo trabajo es básico para mantener servicios esenciales y de abastecimiento.<br>
+**Fuente:** [Ministerio de Transportes, Movilidad y Agenda Urbana](https://www.mitma.gob.es/transporte-terrestre/punto-de-informacion-de-servicios-de-restauracion)
 
 <br><br>
 **Listado de reutilizaciones, análisis, visualizaciones y artículos realizados:**

@@ -42,7 +42,7 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 **(\*\*)COMUNIDADES AUTONÓMAS QUE PUBLICAN DATOS DE PREVALENCIA**
 | Hospitalizados                     | Ingresos UCI         |
 |------------------------------------|----------------------|
-| Castilla La Mancha (hasta 2020-04-11)                 | Castilla La Mancha   |
+| Castilla La Mancha (hasta 2020-04-11)                 | Castilla La Mancha (hasta 2020-04-12)   |
 | Comunidad Valenciana (hasta 2020-04-08)               | Castilla y León      |
 | Madrid                             | Comunidad Valenciana (hasta 2020-04-08) |
 | Castilla y León (hasta 2020-04-06) | Galicia              |
@@ -231,6 +231,12 @@ de interés general y todos los ligados a las actividades consideradas esenciale
 **Nivel administrativo:** Municipio<br>
 **Descripción:** Listado con los puntos de restauración y tiendas con venta de comida preparada para llevar para trabajadores cuyo trabajo es básico para mantener servicios esenciales y de abastecimiento.<br>
 **Fuente:** [Ministerio de Transportes, Movilidad y Agenda Urbana](https://www.mitma.gob.es/transporte-terrestre/punto-de-informacion-de-servicios-de-restauracion)
+
+<br><br>
+**Nombre del archivo:** [EESS_horario_flexible_habitual.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/EESS_horario_flexible_habitual.csv)<br>
+**Nivel administrativo:** Municipio<br>
+**Descripción:** Gasolineras abiertas durante el estado de alarma. Listado de estaciones de servicio con horario habitual y estaciones de servicio que pueden flexibilizar* sus horarios durante el estado de alarma.<br>
+**Fuente:** [Ministerio para la Transición Ecológica y el Reto Demográfico](https://www.miteco.gob.es/es/ministerio/medidas-covid19/)
 
 <br><br>
 **Listado de reutilizaciones, análisis, visualizaciones y artículos realizados:**

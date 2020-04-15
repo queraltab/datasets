@@ -39,6 +39,10 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
  
  **NOTA PUBLICADA POR SANIDAD SOBRE LOS DATOS (08/04/2020)**:  Los datos de estas comunidades son datos de prevalencia (personas ingresadas a fecha de hoy). No reflejan el total de personas que han sido hospitalizadas o ingresadas en UCI a lo largo del periodo de notificación por lo que no se puede realizar el sumatorio de todas las personas que han requerido hospitalización o ingreso en UCI en España.
  
+ **NOTA PUBLICADA POR SANIDAD SOBRE LOS DATOS (15/04/2020)**: Andalucía ha notificado un total de 169 positivos asintomáticos incluidos en el total de confirmados.
+ 
+  **NOTA SOBRE LOS DATOS PUBLICADA POR DEL INSTITUTO DE SALUD CARLOS III(15/04/2020)**: Andalucía (AN) ha notificado un total de 169 positivos asintomáticos incluidos en el total de confirmados. Los casos nuevos de hoy (14/04/2020) se han calculado teniendo en cuenta los 114 nuevos asintomáticos de ayer.
+ 
 **(\*\*)COMUNIDADES AUTONÓMAS QUE PUBLICAN DATOS DE PREVALENCIA**
 | Hospitalizados                     | Ingresos UCI         |
 |------------------------------------|----------------------|
@@ -310,3 +314,7 @@ de interés general y todos los ligados a las actividades consideradas esenciale
 [**SARS-CoV-2 Análisis de datos (ESPAÑA)**](https://davidsamperio.com/es/sars-cov-2-espana/)
 
 [**COVID-19 por el Departamento de Matemática Aplicada de la Universidad de Valencia**](https://indicame.upv.es/coviddata-19/)
+
+[**#COVIDobservatorioMAD**](https://covid-observatorio-mad.herokuapp.com/)
+
+[**Dashboard Evolución COVID-19 por Samnuel Moreno**](https://covid-19-evolution-dashboard.web.app/)

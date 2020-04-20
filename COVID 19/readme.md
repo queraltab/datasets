@@ -46,13 +46,18 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
   **NOTA DE DATADISTA SOBRE LOS DATOS (17/04/2020)**: Fernando Simón indica que el dato correcto que debemos utilizar de nuevos fallecidos es de 585 y no los 348 si descontamos los de ayer. Sanidad está corrigiendo la serie histórica. Observamos que la variación en la serie entre 16/04/2020 y 17/047/2020 (y días anteriores) en altas y fallecimientos se produce con los datos de Cataluña. Baja de los 3.855 fallecidos notificados el 16/04/2020 a 3.752. Tambien cae de 17.297 altas notificadas el 16/04/2020 a 12.787. La corrección de la serie histórica la realizará Sanidad en el dataset mantenido por el Instituto de Salud Carlos III también disponible en este repositorio en [ccaa_covid19_datos_isciii.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_datos_isciii.csv). **NUEVA ACLARACIÓN DE SANIDAD:** Cataluña había ido notificando información por dos vías diferentes. Ante las discrepancias en los últimos días entre los datos facilitados por estas dos fuentes, hoy, se han recogido aquellos datos validados por las autoridades de Salud Pública de Cataluña. <br> 
 
  **NOTA SOBRE LOS DATOS PUBLICADA POR DEL INSTITUTO DE SALUD CARLOS III(17/04/2020)**: La serie histórica de Cataluña se ha eliminado porque está en revisión por dicha comunidad autónoma. Solo se muestra la de casos.
+ 
+ **NOTA DE DATADISTA SOBRE LOS DATOS (18/04/2020)**: Sanidad ha empezado a publicar una serie con las personas con anticuerpos positivos sin síntomas en el momento de realización de la prueba. Por este motivo ha corregido el cálculo de nuevos casos COVID-19 separando estos casos del total de casos confirmados. Esto hace que los datos de casos confirmados notificados para el 17/04/2020 en Andalucía pase de 11.053 a 10.913, en Comunidad Valenciana de 9. 869 a 9.719 y La Rioja de 4.098 a 3.547. Tienes disponible este nuevo dataset en [ccaa_covid19_positivos_asintomaticos.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_positivos_asintomaticos.csv). Los datos de la serie histórica corregidos por Sanidad los tienes disponibles en el dataset del Instituto de Salud Carlos III en [ccaa_covid19_datos_isciii.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_datos_isciii.csv). Otra nota a tener en cuenta publicada por Sanidad: Aragón ha notificado menos curados hoy respecto a días previos por lo que no se ha podido calcular el número de casos nuevos. 
+ 
+ 
+**NOTA DE DATADISTA SOBRE LOS DATOS (19/04/2020)**: Sanidad ha cambiado la la nomenclatura de la columna de "Positivos por test de anticuerpos positivos" a "Asintomáticos por test de anticuerpos", por ese motivo hemos cambiado el nombre del dataset con estos datos a [ccaa_covid19_positivos_asintomaticos.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_positivos_asintomaticos.csv). Los datos de altas por CCAA no están completos debido a que Galicia ha remitido solo altas hospitalarias y no altas epidemiológicas.
   
   
 **(\*\*)COMUNIDADES AUTONÓMAS QUE PUBLICAN DATOS DE PREVALENCIA**
 | Hospitalizados                     | Ingresos UCI         |
 |------------------------------------|----------------------|
 | Castilla La Mancha (hasta 2020-04-11)                 | Castilla La Mancha (hasta 2020-04-12)   |
-| Comunidad Valenciana (hasta 2020-04-08)               | Castilla y León      |
+| Comunidad Valenciana (hasta 2020-04-08)               | Castilla y León  (hasta 2020-04-17)    |
 | Madrid                             | Comunidad Valenciana (hasta 2020-04-08) |
 | Castilla y León (hasta 2020-04-06) | Galicia              |
 |                                    | Madrid               |
@@ -88,7 +93,7 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 
 
 <br><br>
-Descripción: Acumulado del número de casos confirmados registrados por Comunidad Autónoma. 
+Descripción: Acumulado del número de casos confirmados registrados por Comunidad Autónoma.<br> 
 Description: Accumulated number of confirmed cases registered by Autonomous Community<br>
 **Nivel administrativo:** Comunidad Autónoma<br>
 **Nombre del archivo:** [ccaa_covid19_casos.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_casos.csv) <br>
@@ -109,7 +114,7 @@ Description: Accumulated number of confirmed cases registered by Autonomous Comm
 | total   | Casos confirmados | confirmed cases registered                                               | Número     | 7          |
 
 <br><br>
-Descripción: Acumulado del número de casos confirmados registrados mediante una prueba PCR por Comunidad Autónoma. 
+Descripción: Acumulado del número de casos confirmados registrados mediante una prueba PCR por Comunidad Autónoma.<br> 
 Description: Accumulated number of confirmed cases registered by a PCR test by Autonomous Community<br>
 **Nivel administrativo:** Comunidad Autónoma<br>
 **Nombre del archivo:** [ccaa_covid19_confirmados_pcr.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_confirmados_pcr.csv) <br>
@@ -131,7 +136,7 @@ Description: Accumulated number of confirmed cases registered by a PCR test by A
 | total   | Casos confirmados | confirmed cases registered                                               | Número     | 7          |
 
 <br><br>
-Descripción: Acumulado del número de casos confirmados registrados por un test rápido por Comunidad Autónoma. 
+Descripción: Acumulado del número de casos confirmados registrados por un test rápido por Comunidad Autónoma.<br> 
 Description: Accumulated number of confirmed cases registered by rapid test by Autonomous Community<br>
 **Nivel administrativo:** Comunidad Autónoma<br>
 **Nombre del archivo:** [ccaa_covid19_confirmados_test.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_confirmados_test.csv) <br>
@@ -151,6 +156,29 @@ Description: Accumulated number of confirmed cases registered by rapid test by A
 | cod_ine | Código INE de CCAA   | National Statistics Institute (INE) code of the autonomous community | Texto      | 01         |
 | CCAA    | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
 | total   | Casos confirmados | confirmed cases registered                                               | Número     | 7          |
+
+<br><br>
+Descripción: Acumulado del número de personas con anticuerpos positivos sin síntomas en el momento de realización de la prueba  por Comunidad Autónoma.<br>
+Description: Accumulated number of people with positive antibodies without symptoms at the time of the test by Autonomous Community<br>
+**Nivel administrativo:** Comunidad Autónoma<br>
+**Nombre del archivo:** [ccaa_covid19_positivos_asintomaticos.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_positivos_asintomaticos.csv) <br>
+
+| Campo   | Descripción          | Description                                                          | Formato    | Ejemplo    |
+|---------|----------------------|----------------------------------------------------------------------|------------|------------|
+| fecha   | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
+| cod_ine | Código INE de CCAA   | National Statistics Institute (INE) code of the autonomous community | Texto      | 01         |
+| CCAA    | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
+| total   | Casos confirmados | confirmed cases registered                                               | Número     | 7          |
+
+**Nombre del archivo (long format):** [ccaa_covid19_positivos_asintomaticos_long.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_positivos_asintomaticos_long.csv) <br>
+
+| Campo   | Descripción          | Description                                                          | Formato    | Ejemplo    |
+|---------|----------------------|----------------------------------------------------------------------|------------|------------|
+| fecha   | Fecha de publicación | Publication date                                                 | YYYY-MM-DD | 2020-03-25 |
+| cod_ine | Código INE de CCAA   | National Statistics Institute (INE) code of the autonomous community | Texto      | 01         |
+| CCAA    | Comunidad autónoma   | Autonomous community                                                 | Texto      | Madrid     |
+| total   | Casos confirmados | confirmed cases registered                                               | Número     | 7          |
+
 
 <br><br>
 **Nivel administrativo:** Comunidad Autónoma<br>

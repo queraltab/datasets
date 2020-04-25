@@ -56,11 +56,16 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 **NOTA DE DATADISTA SOBRE LOS DATOS (20/04/2020)**: Sanidad ha actualizados los datos de altas de Galicia que estaban pendientes. Son  1536 el 18/04/20 y 1507 el 17/04/20. Estos datos juntos con el total han sido actualizados en el dataset de la serie histórica [ccaa_covid19_altas.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_altas.csv). Sanidad también ha añadido 1.385 casos en Madrid correspondientes a "casos que iniciaron síntomas más de 14 días antes de la realización de la prueba diagnóstica y que no corresponden con nuevos contagios".
 
 
-
 **NOTA DE DATADISTA SOBRE LOS DATOS (22/04/2020)**: El Instituto de Salud Carlos III ha actualizado la serie histórica de Cataluña en el dataset [ccaa_covid19_datos_isciii.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_datos_isciii.csv). 
+
+**NOTA DE DATADISTA SOBRE LOS DATOS DE TEST DE ANTICUERPOS (24/04/2020)**: En el informe del Ministerio de Sanidad publicado hoy indican en una nueva tabla dedicada a test de anticuerpos las CCAA que no separan entre sintomáticos y sin síntomas en el momento de diagnóstico. Son las siguientes: Asturias, Cantabria, Castilla-La Mancha, Castilla y León, Cataluña, Murcia y País Vasco. En el caso de Galicia no distinguen entre PCR, test de anticuerpos con síntomas y asintomáticos positivos a anticuerpos. Por tanto, en la suma de casos confirmados totales se pueden estar sumando casos asintomáticos de estas CCAA.
+
+**NOTA ACLARATORIA DEL MINISTERIO DE SANIDAD (24/04/2020)**: De acuerdo al criterio técnico de las CCAA, se ha decidido contabilizar los casos confirmados de COVID-19 por pruebas diagnósticas PCR notificadas, que a día de hoy son 202.990. La cifra global de 219.764 no recoge el número de personas que han enfermado desde el principio de la epidemia, sino el número de personas que han resultado positivas tanto en pruebas PCR como en test de anticuerpos. Estos últimos detectan si la persona se ha infectado, pero no determinan si la persona llegó a desarrollar la enfermedad, cuánto tiempo hace que la superó o si lo que ha hecho es desarrollar inmunidad. No reflejan por tanto los nuevos contagios. De acuerdo técnicamente con las CCAA, se ha decidido que es más correcto calcular la evolución en base a los casos por PCR que por test de anticuerpos, que son en su mayoría, casos sin síntomas o con síntomas ya pasados. Teniendo en cuenta que COVID-19 es el acrónimo de "enfermedad por coronavirus" en inglés, el número de personas enfermas, solo puede recogerse de los datos de test PCR con resultado positivo que envían las comunidades autónomas al Centro de Coordinación de Alertas y Emergencias Sanitarias (CCAES). Los datos de positivos en test de anticuerpos quedan igualmente reflejados en el informe de actualización del CCAES, pero en otra tabla. De esta forma, se contribuye a depurar la mezcla de diferentes técnicas diagnósticas de las que han informado las CCAA y que ha podido complicar la interpretación de los datos en los últimos días. El objetivo es hacer cuantas más pruebas mejor, pero para valorar la evolución de la epidemia se deben valorar datos que son comparables día a día.
+
+**ACTUALIZACIÓN DE LA NOTA DE DATADISTA SOBRE LOS DATOS (24/04/2020)**: Nos indica el Ministerio de Sanidad que en los datos de hoy también ha habido un ajuste por parte de las CCAA en la serie de positivos por PCR respecto a las cifras de ayer. Por tanto, según ellos, los casos nuevos por PCR son los 2.796. También sea va corregir en los próximos días la serie histórica por parte del Instituto de Salud Carlos III de casos confirmados para incluir solo confirmados por PCR. Los datos de casos confirmados incluyendo positivos por test de anticuerpos se empezó a contabilizar el pasado 16 de abril. Por tanto, pensamos que el ajuste que hara el ISCIII será de los datos de casos confirmados de los últimos 9 días.
+
   
-  
-**(\*\*)COMUNIDADES AUTONÓMAS QUE PUBLICAN DATOS DE PREVALENCIA**
+**(\*\*)COMUNIDADES AUTÓNOMAS QUE PUBLICAN DATOS DE PREVALENCIA**
 | Hospitalizados                     | Ingresos UCI         |
 |------------------------------------|----------------------|
 | Castilla La Mancha (hasta 2020-04-11)                 | Castilla La Mancha (hasta 2020-04-12)   |
@@ -326,6 +331,14 @@ de interés general y todos los ligados a las actividades consideradas esenciale
 **Descripción:** Gasolineras abiertas durante el estado de alarma. Listado de estaciones de servicio con horario habitual y estaciones de servicio que pueden flexibilizar* sus horarios durante el estado de alarma.<br>
 **Fuente:** [Ministerio para la Transición Ecológica y el Reto Demográfico](https://www.miteco.gob.es/es/ministerio/medidas-covid19/)
 
+
+<br><br>
+**Nombre del archivo:** [talleres_reparacion_vehiculos_industriales.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/talleres_reparacion_vehiculos_industriales.csv)<br>
+**Nivel administrativo:** Municipio<br>
+**Descripción:** Listado de los talleres abiertos para vehículos industriales durante el estado de alarma.<br>
+**Fuente:** [Ministerio de Transportes, Movilidad y Agenda Urbana](https://www.mitma.gob.es)
+
+
 <br><br>
 **Nombre del archivo:** [contratos_emergencia_sanidad.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/contratos_emergencia_sanidad.csv)<br>
 **Nivel administrativo:** Nacional<br>
@@ -417,3 +430,5 @@ de interés general y todos los ligados a las actividades consideradas esenciale
 [**COVID-19 en España**](https://covid19sp.herokuapp.com/)
 
 [**El Independiente: Compras de Sanidad: 726 millones de mascarillas, 115 millones de guantes, 2.500 respiradores...**](https://www.elindependiente.com/politica/2020/04/22/compras-de-sanidad-713-millones-de-mascarillas-115-millones-de-guantes-2-500-respiradores/)
+
+[**COVID-19 Spain**](https://nachomcapella.shinyapps.io/covid-19/)

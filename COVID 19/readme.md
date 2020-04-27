@@ -64,7 +64,10 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 
 **ACTUALIZACIÓN DE LA NOTA DE DATADISTA SOBRE LOS DATOS (24/04/2020)**: Nos indica el Ministerio de Sanidad que en los datos de hoy también ha habido un ajuste por parte de las CCAA en la serie de positivos por PCR respecto a las cifras de ayer. Por tanto, según ellos, los casos nuevos por PCR son los 2.796. También sea va corregir en los próximos días la serie histórica por parte del Instituto de Salud Carlos III de casos confirmados para incluir solo confirmados por PCR. Los datos de casos confirmados incluyendo positivos por test de anticuerpos se empezó a contabilizar el pasado 16 de abril. Por tanto, pensamos que el ajuste que hara el ISCIII será de los datos de casos confirmados de los últimos 9 días.
 
-**NOTA DE DATADISTA SOBRE LOS DATOS (26/04/2020)**: El Ministerio de Sanidad ha dejado de ofrecer las tablas de positivos por test de anticuerpos y positivos por test de anticuerpos asintomáticos. En palabras de Fernando Simón: "No vamos a quitar las tablas serológicas, vamos a espaciar su periodicidad. Próximamente vamos a cambiar los indicadores de interés. Hemos pensado que mejor no distraer con datos de más difícil interpretación". También hemos observado que el ISCIII no ha actualizado hoy el csv que mantiene de la serie histórica, por tanto, no es posible conocer el número de casos totales detectados en España. Esta decisión afecta a los datasets: nacional_covid19.csv, ccaa_covid19_casos.csv, ccaa_covid19_casos_long.csv, ccaa_covid19_confirmados_test.csv, ccaa_covid19_confirmados_test_long.csv, ccaa_covid19_positivos_asintomaticos.csv y ccaa_covid19_positivos_asintomaticos_long.csv
+**NOTA DE DATADISTA SOBRE LOS DATOS (26/04/2020)**: El Ministerio de Sanidad ha dejado de ofrecer las tablas de positivos por test de anticuerpos y positivos por test de anticuerpos asintomáticos. En palabras de Fernando Simón: "No vamos a quitar las tablas serológicas, vamos a espaciar su periodicidad. Próximamente vamos a cambiar los indicadores de interés. Hemos pensado que mejor no distraer con datos de más difícil interpretación". <strike>También hemos observado que el ISCIII no ha actualizado hoy el csv que mantiene de la serie histórica, por tanto, no es posible conocer el número de casos totales detectados en España</strike>. **ACTUALIZACIÓN 15:50H** EL ISCIII acaba de añadir el csv con la serie histórica disponiendo de los datos de test PCR y test de anticcuerpos, lo que nos ha permitido poder actualizar los siguientes datasets: nacional_covid19.csv, ccaa_covid19_casos.csv, ccaa_covid19_casos_long.csv, ccaa_covid19_confirmados_test.csv, ccaa_covid19_confirmados_test_long.csv. Quedan pendientes de poder actualizar los datasets: ccaa_covid19_positivos_asintomaticos.csv y ccaa_covid19_positivos_asintomaticos_long.csv
+
+
+**NOTA DE DATADISTA SOBRE LOS DATOS (27/04/2020)**: Desde hoy, los datos publicados de Madrid en hospitalizados y UCI son el acumulado y no el dato de prevalencia.
 
   
 **(\*\*)COMUNIDADES AUTÓNOMAS QUE PUBLICAN DATOS DE PREVALENCIA**
@@ -72,9 +75,9 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 |------------------------------------|----------------------|
 | Castilla La Mancha (hasta 2020-04-11)                 | Castilla La Mancha (hasta 2020-04-12)   |
 | Comunidad Valenciana (hasta 2020-04-08)               | Castilla y León  (hasta 2020-04-17)    |
-| Madrid                             | Comunidad Valenciana (hasta 2020-04-08) |
+| Madrid (hasta 2020-04-26)                             | Comunidad Valenciana (hasta 2020-04-08) |
 | Castilla y León (hasta 2020-04-06) | Galicia              |
-|                                    | Madrid               |
+|                                    | Madrid (hasta 2020-04-26)              |
 
  
 **Nombre del archivo:** [nacional_covid19.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/nacional_covid19.csv) <br>
@@ -83,7 +86,7 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
  | Campo          | Descripción                                                       | Description                                                                       | Formato    | Ejemplo |
 |----------------|-------------------------------------------------------------------|-----------------------------------------------------------------------------------|------------|---------|
 | fecha          | Fecha de publicación                                              | Publication date                                                              | YYYY-MM-DD | 2020-03-25 |
-| casos          | Casos confirmados acumulados                                      | Accumulated confirmed cases                                                       | Número     | 7       |
+| casos          | Total de casos confirmados acumulados (PCR + Test de anticuerpos)                                      | Accumulated total confirmed cases (PCR + Antibody test)                                                      | Número     | 7       |
 | altas          | Personas curadas acumuladas                                       | Accumulated recovered                                                             | Número     | 7       |
 | fallecimientos | Personas fallecidas acumuladas                                    | Accumulated deceased                                                              | Número     | 7       |
 | ingresos_uci   | Casos acumulados que han precisado ingreso en UCI(\*\*) | Accumulated cases that have required admission to the IC(\*\*) | Número     | 7       |
@@ -107,8 +110,8 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 
 
 <br><br>
-Descripción: Acumulado del número de casos confirmados registrados por Comunidad Autónoma.<br> 
-Description: Accumulated number of confirmed cases registered by Autonomous Community<br>
+Descripción: Acumulado del número de casos confirmados totales (PCR + Test de anticuerpos) registrados por Comunidad Autónoma.<br> 
+Description: Accumulated number of total confirmed cases (PCR + Antibody test) registered by Autonomous Community<br>
 **Nivel administrativo:** Comunidad Autónoma<br>
 **Nombre del archivo:** [ccaa_covid19_casos.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_casos.csv) <br>
 

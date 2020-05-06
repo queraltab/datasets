@@ -1,6 +1,10 @@
-Extracción, limpieza y normalización de las tablas de la situación diaria acumulada de la enfermedad por el coronavirus SARS-CoV-2 (COVID-19) en España en un formato accesible y reutilizable. Datos actualizados diariamente según el calendario y ritmo de publicación del Ministerio de Sanidad. 
+**LEA DETENIDAMENTE ESTE README ANTES DE UTILIZAR LOS DATOS**
 
-- También tienes disponibles otros datasets accesorios para cubrir la crisis por COVID-19 en España
+**Datasets relacionados con la incidencia de la COVID-19 en España**
+
+- Extracción, limpieza y normalización de las tablas de la situación diaria acumulada de la enfermedad por el coronavirus SARS-CoV-2 (COVID-19) en España en un formato accesible y reutilizable. Datos actualizados diariamente según el calendario y ritmo de publicación del Ministerio de Sanidad. 
+
+- Datasets accesorios para cubrir la crisis por COVID-19 en España
 
 **Fuente de los datos:**
 
@@ -10,6 +14,7 @@ Extracción, limpieza y normalización de las tablas de la situación diaria acu
 - BOE: Crisis Sanitaria COVID-19 https://www.boe.es/biblioteca_juridica/codigos/codigo.php?id=355&modo=2&nota=0&tab=2<br>
 - Ministerio de Transportes, Movilidad y Agenda Urbana https://www.mitma.gob.es/transporte-terrestre/punto-de-informacion-de-servicios-de-restauracion
 - Plataforma de Contratación del Estado: [Dirección General de Cartera común de servicios del Sistema Nacional de Salud y Farmacia](https://contrataciondelestado.es/wps/portal/!ut/p/b0/04_Sj9CPykssy0xPLMnMz0vMAfIjU1JTC3Iy87KtClKL0jJznPPzSooSSxLzSlL1w_Wj9KMyU5wK9CMjQ1M9TRM9y7NzTQK9jUJc0yLcK7UdbW31C3JzHQEtJPOu/) e [INGESA](https://contrataciondelestado.es/wps/portal/!ut/p/b0/DccxCoAwDADAJ2UtgoMt-APRZgsYNdimoYS-X287QDgAlYbc5NKUyv98MlsRfSfjfklJTb2TkzrDDggoZzTIMa2xhfHQFmawWpcP0GJGAA!!/)
+- Ministerio de Inclusión, Seguridad Social y Migraciones: http://prensa.mitramiss.gob.es/WebPrensa/noticias/seguridadsocial/detalle/3798
  
  Los datos para los días [29 de febrero](https://www.dsn.gob.es/gl/actualidad/sala-prensa/coronavirus-covid-19-29-febrero-2020), [1 de marzo](https://www.dsn.gob.es/gl/actualidad/sala-prensa/coronavirus-covid-19-01-marzo-2020), [7 de marzo](https://www.dsn.gob.es/gl/actualidad/sala-prensa/coronavirus-covid-19-07-marzo-2020) y [8 de marzo](https://www.dsn.gob.es/gl/actualidad/sala-prensa/coronavirus-covid-19-08-marzo-2020) provienen de las notas de prensa del Departamento de Seguridad Nacional y del gabinete de prensa del Ministerio de Sanidad.
  
@@ -378,6 +383,27 @@ de interés general y todos los ligados a las actividades consideradas esenciale
 **Nivel administrativo:** Nacional<br>
 **Descripción:** Listado de todas las empresas adjudicatarias de contratos por parte del Ministerio de Sanidad para hacer frente a la crisis sanitaria de la COVID-19.<br>
 **Fuente:**  Plataforma de Contratación del Estado: [Dirección General de Cartera común de servicios del Sistema Nacional de Salud y Farmacia](https://contrataciondelestado.es/wps/portal/!ut/p/b0/04_Sj9CPykssy0xPLMnMz0vMAfIjU1JTC3Iy87KtClKL0jJznPPzSooSSxLzSlL1w_Wj9KMyU5wK9CMjQ1M9TRM9y7NzTQK9jUJc0yLcK7UdbW31C3JzHQEtJPOu/) e [INGESA](https://contrataciondelestado.es/wps/portal/!ut/p/b0/DccxCoAwDADAJ2UtgoMt-APRZgsYNdimoYS-X287QDgAlYbc5NKUyv98MlsRfSfjfklJTb2TkzrDDggoZzTIMa2xhfHQFmawWpcP0GJGAA!!/)
+
+
+<br><br>
+**Nombre del archivo:** [ERTE_fuerza_mayor_sectores.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ERTE_fuerza_mayor_sectores.csv)<br>
+**Nivel administrativo:** Nacional<br>
+**Descripción:** Listado del número de personas afectadas por un ERTE por fuerza mayor por sectores. Media mensual.<br>
+**Fuente:**  Ministerio de Inclusión, Seguridad Social y Migraciones: http://prensa.mitramiss.gob.es/WebPrensa/noticias/seguridadsocial/detalle/3798
+
+
+<br><br>
+**Nombre del archivo:** [ccaa_covid19_ERTE.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/ccaa_covid19_ERTE.csv)<br>
+**Nivel administrativo:** CCAA<br>
+**Descripción:** Número de personas afectadas por un ERTE por comunidad autónoma<br>
+**Fuente:**  Ministerio de Inclusión, Seguridad Social y Migraciones: http://prensa.mitramiss.gob.es/WebPrensa/noticias/seguridadsocial/detalle/3798
+
+
+<br><br>
+**Nombre del archivo:** [provincia_covid19_ERTE.csv](https://raw.githubusercontent.com/datadista/datasets/master/COVID%2019/provincia_covid19_ERTE.csv)<br>
+**Nivel administrativo:** Provincial<br>
+**Descripción:** Número de personas afectadas por un ERTE por provincias<br>
+**Fuente:**  Ministerio de Inclusión, Seguridad Social y Migraciones: http://prensa.mitramiss.gob.es/WebPrensa/noticias/seguridadsocial/detalle/3798
 
 
 <br><br>

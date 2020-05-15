@@ -10,6 +10,7 @@
 | Thu, 30 Apr 2020 12:47:09 +0200  | COVID 19/areas_descanso_carreteras.csv |
 | Mon, 23 Mar 2020 08:55:52 +0100  | COVID 19/ccaa_camas_uci_2017.csv |
 | Tue, 5 May 2020 18:07:18 +0200  | COVID 19/ccaa_covid19_ERTE.csv |
+<<<<<<< HEAD
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_altas.csv |
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_altas_long.csv |
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_casos.csv |
@@ -23,6 +24,21 @@
 | Fri, 15 May 2020 12:18:08 +0200  | COVID 19/ccaa_covid19_fallecidos_long.csv |
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_hospitalizados.csv |
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_hospitalizados_long.csv |
+=======
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_altas.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_altas_long.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_casos.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_casos_long.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_confirmados_pcr.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_confirmados_pcr_long.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_confirmados_test.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_confirmados_test_long.csv |
+| Thu, 14 May 2020 12:26:08 +0200  | COVID 19/ccaa_covid19_datos_isciii.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_fallecidos.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_fallecidos_long.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_hospitalizados.csv |
+| Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_hospitalizados_long.csv |
+>>>>>>> 66a1fee6806101524d7f7cfb57de5bcba91d821c
 | Tue, 7 Apr 2020 15:28:15 +0200  | COVID 19/ccaa_covid19_mascarillas.csv |
 | Sat, 25 Apr 2020 13:54:25 +0200  | COVID 19/ccaa_covid19_positivos_asintomaticos.csv |
 | Sat, 25 Apr 2020 13:54:25 +0200  | COVID 19/ccaa_covid19_positivos_asintomaticos_long.csv |

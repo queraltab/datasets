@@ -1,6 +1,6 @@
 **LEA DETENIDAMENTE ESTE README ANTES DE UTILIZAR LOS DATOS**
 
-**Datasets relacionados con la incidencia de la COVID-19 en España**
+**Datasets relacionados con la incidencia de la COVID-19 en España realizado por DATADISTA, medio especializado en periodismo de investigación y datos para salir del ruido.**
 
 - Extracción, limpieza y normalización de las tablas de la situación diaria acumulada de la enfermedad por el coronavirus SARS-CoV-2 (COVID-19) en España en un formato accesible y reutilizable. Datos actualizados diariamente según el calendario y ritmo de publicación del Ministerio de Sanidad y el Instituto de Salud Carlos III. 
 
@@ -90,6 +90,11 @@ grupos. Los pacientes que han precisado UCI también computan en los pacientes q
 datos. Cataluña ha notificado 337 casos más respecto ayer, de los cuales 184 corresponden a casos nuevos. La serie de casos se está revisando.
 
 **NOTA ACLARATORIA DEL MINISTERIO DE SANIDAD (13/05/2020)**: De los 136 nuevos casos notificados por Cataluña, 26 casos corresponden a casos antiguos. La serie de casos se está revisando. 
+
+**NOTA ACLARATORIA DEL MINISTERIO DE SANIDAD (15/05/2020)**: Extremadura ha actualizado su histórico de positivos por PCR y ha añadido dos casos más a los datos de ayer y otros dos a los del día anterior.
+
+**NOTA ACLARATORIA DEL MINISTERIO DE SANIDAD (16/05/2020)**:  Cataluña ha notificado además de los 123 casos nuevos, 98 casos antiguos. La serie de casos se está revisando. Galicia ha realizado una revisión de sus casos y ha actualizado la información. Se continuará revisando la serie. La Comunidad de Madrid consolida diariamente la serie de casos confirmados por PCR, asignando a los casos nuevos notificados la fecha en la que se toma la muestra o se emite el resultado. Se realiza una actualización diaria de la serie de casos.
+
   
 **(\*\*)COMUNIDADES AUTÓNOMAS QUE PUBLICAN DATOS DE PREVALENCIA**
 | Hospitalizados                     | Ingresos UCI         |

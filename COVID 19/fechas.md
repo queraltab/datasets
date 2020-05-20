@@ -14,6 +14,9 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9a3bcfac968a9bf470f6dac2c68cc8c5b6bb58e6
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_altas.csv |
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_altas_long.csv |
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_casos.csv |
@@ -27,6 +30,7 @@
 | Fri, 15 May 2020 12:18:08 +0200  | COVID 19/ccaa_covid19_fallecidos_long.csv |
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_hospitalizados.csv |
 | Thu, 14 May 2020 13:00:36 +0200  | COVID 19/ccaa_covid19_hospitalizados_long.csv |
+<<<<<<< HEAD
 =======
 | Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_altas.csv |
 | Wed, 13 May 2020 13:24:31 +0200  | COVID 19/ccaa_covid19_altas_long.csv |
@@ -87,6 +91,8 @@
 | Mon, 18 May 2020 19:56:56 +0200  | COVID 19/ccaa_covid19_hospitalizados.csv |
 | Mon, 18 May 2020 19:56:56 +0200  | COVID 19/ccaa_covid19_hospitalizados_long.csv |
 >>>>>>> upstream/master
+=======
+>>>>>>> 9a3bcfac968a9bf470f6dac2c68cc8c5b6bb58e6
 | Tue, 7 Apr 2020 15:28:15 +0200  | COVID 19/ccaa_covid19_mascarillas.csv |
 | Sat, 25 Apr 2020 13:54:25 +0200  | COVID 19/ccaa_covid19_positivos_asintomaticos.csv |
 | Sat, 25 Apr 2020 13:54:25 +0200  | COVID 19/ccaa_covid19_positivos_asintomaticos_long.csv |

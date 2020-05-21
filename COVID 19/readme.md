@@ -104,6 +104,12 @@ datos. Cataluña ha notificado 337 casos más respecto ayer, de los cuales 184 c
 **NOTA ACLARATORIA DEL MINISTERIO DE SANIDAD (19/05/2020)**: Cataluña, Extremadura y País Vasco han validado sus casos por lo que el dato acumulado de hoy puede ser menor que el notificado ayer. Los casos nuevos no provienen de la resta de los notificados ayer respecto a hoy. Las series se están revisando. La Comunidad de Madrid consolida diariamente la serie de casos confirmados por PCR, asignando a los casos nuevos notificados la fecha en la que se toma la muestra o se emite el
 resultado. Se realiza una actualización diaria de la serie de casos.
 
+**NOTA ACLARATORIA DEL MINISTERIO DE SANIDAD (20/05/2020)**: La Comunidad de Madrid ha notificado 217 casos nuevos de los cuales 112 son nuevos diagnósticos. Esta comunidad consolida diariamente la serie de casos confirmados por PCR,
+asignando a los casos nuevos notificados la fecha en la que se toma la muestra o se emite el resultado. Se realiza una actualización diaria de la serie de casos.Las CCAA están validando y depurando las series de datos por lo que los casos totales pueden sufrir variaciones de un día a otro. El total de pacientes en hospitalizados, en UCI y fallecidos puede variar respecto a días previos debido a que algunas Andalucía, Aragón, Asturias, C. Valenciana y Extremadura están depurando sus datos.
+
+**NOTA ACLARATORIA DE DATADISTA (21/05/2020)**: Sanidad ha dejado de publicar en sus informes diarios los datos de recuperados, testAC y casos confirmados por rango de edad desde 18/05/2020. El ISCIII lleva desde el 18/05/2020 sin actualizar la serie histórica. Por este motivo, no podemos actualizar los datasets nacional_covid19_rango_edad.csv, ccaa_covid19_casos.csv, ccaa_covid19_confirmados_test.csv y ccaa_covid19_altas.csv y sus versiones larga.
+
+
   
 **(\*\*)COMUNIDADES AUTÓNOMAS QUE PUBLICAN DATOS DE PREVALENCIA**
 | Hospitalizados                     | Ingresos UCI         |
@@ -534,3 +540,5 @@ de interés general y todos los ligados a las actividades consideradas esenciale
 [**COVID19-Tracker: una aplicación Shiny para analizar datos de la epidemia de SARS-CoV-2 en España DOI: 10.1016/j.gaceta.2020.04.002**](https://www.gacetasanitaria.org/es-covid19-tracker-una-aplicacion-shiny-analizar-avance-S0213911120300856?fbclid=IwAR3RweA81af9iQ_ivFE0bZSAT2m4AzQSTYr-0wTs5HATmigCmlJuTY_LGEM)
 
 [**COVID-19 Modeling: Predicciones del alcance del COVID-19**](https://covid19-modeling.github.io/)
+
+[**COVID-19 Spain**](https://covid19spain.org/)

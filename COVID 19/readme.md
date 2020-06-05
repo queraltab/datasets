@@ -122,6 +122,8 @@ asignando a los casos nuevos notificados la fecha en la que se toma la muestra o
 
 **NOTA ACLARATORIA DE DATADISTA (DESDE 21/05/2020)**: Debido a la ruptura de la serie histórica por parte de Sanidad debido a la entrada en vigor de la nueva estrategia de vigilancia y control, los datasets de CCAA no serán actualizados hasta que el Instituto de Salud Carlos III actualice la serie histórica. No es comparable la serie anterior con la nueva hasta que no sean corregidos.
 
+**NOTA ACLARATORIA DE DATADISTA (29/05/2020)**: Fernando Simón indica que posiblemente el miércoles se publiquen los datos con la serie histórica corregida. Explica, por ejemplo, que se van a tener los datos por la fecha de fallecimiento y no la de notificación como hasta ahora.
+
   
 **(\*\*)COMUNIDADES AUTÓNOMAS QUE PUBLICAN DATOS DE PREVALENCIA**
 | Hospitalizados                     | Ingresos UCI         |
@@ -556,3 +558,9 @@ de interés general y todos los ligados a las actividades consideradas esenciale
 [**COVID-19 Spain**](https://covid19spain.org/)
 
 [**COnVIDa - Monitorización de datos de COVID19 en España**](https://convida.inf.um.es/)
+
+[**Reutilización de datos por la asignatura Desarrollo en Tecnologías Emergentes del Grado en Ingeniería en Sistemas de la Información - Universidad de Alcalá**](https://gitlab.com/dte2020/t6/tg3c)
+
+[**Prediction COVID-19: SIR based model in Spain**](https://www.kaggle.com/gustavomoyanodiaz/prediction-covid-19-sir-based-model-in-spain)
+
+[**Assessing the age- and gender-dependence of the severity and case fatality rates of COVID-19 disease in Spain DOI: 10.12688/wellcomeopenres.15996.1**](https://wellcomeopenresearch.org/articles/5-117/v1)

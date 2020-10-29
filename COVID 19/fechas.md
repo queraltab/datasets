@@ -34,11 +34,12 @@
 | Tue, 20 Oct 2020 19:27:39 +0200  | COVID 19/ccaa_covid19_test_realizados.csv |
 | Sun, 24 May 2020 17:26:44 +0200  | COVID 19/ccaa_covid19_uci.csv |
 | Sun, 24 May 2020 17:26:44 +0200  | COVID 19/ccaa_covid19_uci_long.csv |
-| Thu, 22 Oct 2020 23:19:48 +0200  | COVID 19/ccaa_ingresos_camas_convencionales_uci.csv |
+| Thu, 29 Oct 2020 10:32:13 +0100  | COVID 19/ccaa_ingresos_camas_convencionales_uci.csv |
 | Sat, 10 Oct 2020 10:19:17 +0200  | COVID 19/ccaa_pcr_realizadas_diarias.csv |
 | Wed, 29 Apr 2020 09:58:51 +0200  | COVID 19/contratos_emergencia_sanidad.csv |
 | Wed, 13 May 2020 13:33:11 +0200  | COVID 19/municipios_distritos_madrid_casos.csv |
 | Thu, 15 Oct 2020 18:53:55 +0200  | COVID 19/nacional_casos_personal_sanitario.csv |
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -55,6 +56,9 @@
 >>>>>>> 8454129a80c52dab055f85060f2f535fc200bc4b
 =======
 | Mon, 26 Oct 2020 19:26:29 +0100  | COVID 19/nacional_covid19.csv |
+>>>>>>> upstream/master
+=======
+| Wed, 28 Oct 2020 20:41:40 +0100  | COVID 19/nacional_covid19.csv |
 >>>>>>> upstream/master
 | Sat, 23 May 2020 18:06:50 +0200  | COVID 19/nacional_covid19_rango_edad.csv |
 | Sat, 23 May 2020 18:06:50 +0200  | COVID 19/nota_nacional_covid_19_rango_edad.csv |

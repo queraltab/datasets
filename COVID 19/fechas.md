@@ -39,31 +39,7 @@
 | Wed, 29 Apr 2020 09:58:51 +0200  | COVID 19/contratos_emergencia_sanidad.csv |
 | Wed, 13 May 2020 13:33:11 +0200  | COVID 19/municipios_distritos_madrid_casos.csv |
 | Thu, 15 Oct 2020 18:53:55 +0200  | COVID 19/nacional_casos_personal_sanitario.csv |
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-| Thu, 22 Oct 2020 20:13:51 +0200  | COVID 19/nacional_covid19.csv |
-=======
-| Wed, 21 Oct 2020 18:56:01 +0200  | COVID 19/nacional_covid19.csv |
->>>>>>> 0982d4b5e2f1cb20acd8f1b14fda87f88ac19961
-=======
-| Fri, 23 Oct 2020 18:31:44 +0200  | COVID 19/nacional_covid19.csv |
->>>>>>> upstream/master
-=======
-| Thu, 22 Oct 2020 20:13:51 +0200  | COVID 19/nacional_covid19.csv |
->>>>>>> 8454129a80c52dab055f85060f2f535fc200bc4b
-=======
-| Mon, 26 Oct 2020 19:26:29 +0100  | COVID 19/nacional_covid19.csv |
->>>>>>> upstream/master
-=======
-| Wed, 28 Oct 2020 20:41:40 +0100  | COVID 19/nacional_covid19.csv |
->>>>>>> upstream/master
-=======
-| Fri, 23 Oct 2020 18:31:44 +0200  | COVID 19/nacional_covid19.csv |
->>>>>>> f2037a4922de558ce81652b29c5242b04e135391
+| Thu, 29 Oct 2020 21:03:29 +0100  | COVID 19/nacional_covid19.csv |
 | Sat, 23 May 2020 18:06:50 +0200  | COVID 19/nacional_covid19_rango_edad.csv |
 | Sat, 23 May 2020 18:06:50 +0200  | COVID 19/nota_nacional_covid_19_rango_edad.csv |
 | Tue, 5 May 2020 18:24:41 +0200  | COVID 19/provincia_covid19_ERTE.csv |

@@ -44,6 +44,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 | Thu, 22 Oct 2020 20:13:51 +0200  | COVID 19/nacional_covid19.csv |
 =======
 | Wed, 21 Oct 2020 18:56:01 +0200  | COVID 19/nacional_covid19.csv |
@@ -60,6 +61,9 @@
 =======
 | Wed, 28 Oct 2020 20:41:40 +0100  | COVID 19/nacional_covid19.csv |
 >>>>>>> upstream/master
+=======
+| Fri, 23 Oct 2020 18:31:44 +0200  | COVID 19/nacional_covid19.csv |
+>>>>>>> f2037a4922de558ce81652b29c5242b04e135391
 | Sat, 23 May 2020 18:06:50 +0200  | COVID 19/nacional_covid19_rango_edad.csv |
 | Sat, 23 May 2020 18:06:50 +0200  | COVID 19/nota_nacional_covid_19_rango_edad.csv |
 | Tue, 5 May 2020 18:24:41 +0200  | COVID 19/provincia_covid19_ERTE.csv |
